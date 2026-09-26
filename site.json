@@ -1,0 +1,739 @@
+{
+  "github_username": "eduardo-abi-jaber",
+  "site_url": "https://eduardo-abi-jaber.github.io",
+  "copyright_year": 2026,
+  "portrait": "",
+  "people": [
+    {
+      "title": "Doctoral researchers",
+      "members": [
+        {
+          "name": "Ronan Pécheul",
+          "dates": "Since 2025",
+          "institution": "École Polytechnique",
+          "supervision": "Co-supervised with Clément Rey.",
+          "partner": "BNP Paribas",
+          "position": "",
+          "award": "",
+          "url": "https://www.linkedin.com/in/ronan-pecheul/"
+        },
+        {
+          "name": "Dimitri Sotnikov",
+          "dates": "Since 2024",
+          "institution": "École Polytechnique",
+          "supervision": "Co-supervised with Charles Bertucci.",
+          "partner": "ENGIE Global Markets",
+          "position": "",
+          "award": "European Best Quant Finance Master’s Thesis Award 2024.",
+          "url": "https://sotnikov.eu/"
+        },
+        {
+          "name": "Elie Attal",
+          "dates": "Since 2024",
+          "institution": "École Polytechnique",
+          "supervision": "Co-supervised with Mathieu Rosenbaum.",
+          "partner": "",
+          "position": "",
+          "award": "Bloomberg Quantitative Finance PhD Fellowship.",
+          "url": "https://www.linkedin.com/in/elie-attal-173b66228/"
+        },
+        {
+          "name": "Maxime Guellil",
+          "dates": "Since 2024",
+          "institution": "Université Paris Cité",
+          "supervision": "Co-supervised with Stéphane Crépey.",
+          "partner": "CACIB",
+          "position": "",
+          "award": "",
+          "url": "https://www.linkedin.com/in/maximeguellil/"
+        }
+      ]
+    },
+    {
+      "title": "Postdoctoral researchers",
+      "members": [
+        {
+          "name": "Francesca Primavera",
+          "dates": "Since 2025",
+          "institution": "École Polytechnique",
+          "supervision": "",
+          "partner": "",
+          "position": "",
+          "award": "",
+          "url": "https://www.linkedin.com/in/francescaprimavera/en"
+        }
+      ]
+    },
+    {
+      "title": "Alumni",
+      "members": [
+        {
+          "name": "Louis-Amand Gérard",
+          "dates": "PhD, 2022–2025",
+          "institution": "Université Paris 1 Panthéon-Sorbonne",
+          "supervision": "Co-supervised with Olivier Guéant.",
+          "partner": "GEFIP",
+          "position": "",
+          "award": "",
+          "url": "https://www.linkedin.com/in/louis-amand-g%C3%A9rard/"
+        },
+        {
+          "name": "Nathan De Carvalho",
+          "dates": "PhD, 2021–2025",
+          "institution": "Université de Paris",
+          "supervision": "Co-supervised with Huyên Pham.",
+          "partner": "ENGIE Global Markets",
+          "position": "Quant at CFM",
+          "award": "Bachelier Finance Society Junior Scholar Award 2024; Bruti-Liberati Prize 2025.",
+          "url": "https://www.linkedin.com/in/nathan-de-carvalho-936129172/?originalSubdomain=fr"
+        },
+        {
+          "name": "Shaun Li",
+          "dates": "PhD, 2021–2024",
+          "institution": "Université Paris 1 Panthéon-Sorbonne",
+          "supervision": "Co-supervised with Bernard de Meyer.",
+          "partner": "AXA Investment Managers",
+          "position": "Quant at Morgan Stanley",
+          "award": "",
+          "url": "https://www.linkedin.com/in/shaun-li-66a6582b/"
+        },
+        {
+          "name": "Alessandro Bondi",
+          "dates": "Postdoc, 2023–2024",
+          "institution": "École Polytechnique",
+          "supervision": "Co-supervised with Sergio Pulido.",
+          "partner": "",
+          "position": "Tenure-track researcher, Luiss University, Rome",
+          "award": "",
+          "url": "https://sites.google.com/view/alessandrobondi/home"
+        }
+      ]
+    }
+  ],
+  "upcoming": [
+    {
+      "name": "Algo Defi Workshop",
+      "date": "8–9 October 2026",
+      "place": "Milan, Italy",
+      "topic": "Signatures for hedging with memory.",
+      "url": "https://www.mate.polimi.it/events/ALGODEFI26/"
+    },
+    {
+      "name": "Mathematical Advances on Emerging Risks",
+      "date": "3–6 November 2026",
+      "place": "Yucatán, Mexico",
+      "topic": "Characteristic functions of signatures, Riccati equations and stochastic control.",
+      "url": "https://thomaspeyrat.github.io/Merida_2026.github.io/index.html"
+    },
+    {
+      "name": "QuantMinds",
+      "date": "16–19 November 2026",
+      "place": "London, UK",
+      "topic": "Fading memory signatures for volatility modelling.",
+      "url": "https://informaconnect.com/quantminds-international/"
+    },
+    {
+      "name": "Stochastic Numerics and Statistical Learning",
+      "date": "22–29 November 2026",
+      "place": "KAUST, Saudi Arabia",
+      "topic": "Fading Memory Signature.",
+      "url": "https://www.kaust.edu.sa/events/snsl26/"
+    },
+    {
+      "name": "Research in Options: RiO 2026",
+      "date": "2–6 December 2026",
+      "place": "Rio de Janeiro, Brazil",
+      "topic": "",
+      "url": "https://eventos.fgv.br/research-options-2026"
+    },
+    {
+      "name": "Séminaire Bachelier",
+      "date": "8 January 2027",
+      "place": "Paris, France",
+      "topic": "",
+      "url": "https://www.bachelier-paris.fr/programme/"
+    },
+    {
+      "name": "Finance and Stochastics Seminar",
+      "date": "19 January 2027",
+      "place": "Imperial College London, UK",
+      "topic": "",
+      "url": "https://www.imperial.ac.uk/mathematical-finance/events/finance-and-stochastics/"
+    },
+    {
+      "name": "Stochastic Control and Games for Risk and Regulation",
+      "date": "26–29 April 2027",
+      "place": "Hammamet, Tunisia",
+      "topic": "",
+      "url": "https://sites.google.com/view/conference-hammamet/home"
+    },
+    {
+      "name": "Summer School on Quantitative Finance",
+      "date": "28 June – 2 July 2027",
+      "place": "Barcelona, Spain",
+      "topic": "",
+      "url": "https://www.crm.cat/"
+    }
+  ],
+  "selected_talks": [
+    {
+      "name": "Bloomberg Quant BBQ",
+      "date": "February 2026",
+      "place": "New York, USA",
+      "topic": "Keynote: Path-Signatures, Memory and Stationarity.",
+      "url": "https://go.bloomberg.com/attend/invite/2-24-26-bloomberg-quant-bbq-seminar-series-february/"
+    },
+    {
+      "name": "Actuarial and Financial Mathematics Conference",
+      "date": "February 2026",
+      "place": "Brussels, Belgium",
+      "topic": "Plenary: volatility dynamics and memory.",
+      "url": "https://afmathconf.ugent.be/index.php?page=programme"
+    },
+    {
+      "name": "Advances in Financial Mathematics",
+      "date": "January 2026",
+      "place": "Paris, France",
+      "topic": "Plenary: efficient simulation of affine Volterra processes, from Heston to Hawkes.",
+      "url": "https://fin-risks2026.sciencesconf.org/"
+    },
+    {
+      "name": "Vienna Congress on Mathematical Finance",
+      "date": "July 2025",
+      "place": "Vienna, Austria",
+      "topic": "Plenary: from the quintic model to signatures.",
+      "url": "https://fam.tuwien.ac.at/events/vcmf2025/"
+    },
+    {
+      "name": "Research in Options: RiO 2024",
+      "date": "December 2024",
+      "place": "Rio de Janeiro, Brazil",
+      "topic": "Minicourse on Volterra processes in quantitative finance.",
+      "url": "https://eventos.fgv.br/research-options-2024"
+    },
+    {
+      "name": "Stochastic Methods in Finance and Physics",
+      "date": "July 2023",
+      "place": "Crete, Greece",
+      "topic": "Minicourse on Volterra processes in finance.",
+      "url": "https://sites.google.com/view/smfp2023/speakers"
+    },
+    {
+      "name": "KAUST minicourse",
+      "date": "May 2023",
+      "place": "KAUST, Saudi Arabia",
+      "topic": "Non-Markovian models in finance, with Christian Bayer.",
+      "url": "https://www.kaust.edu.sa/events/snsl26/"
+    }
+  ],
+  "courses": [
+    {
+      "level": "Master’s course",
+      "title": "Memory in Quantitative Finance: Volterra Processes and Path Signatures",
+      "institution": "M2 Probabilités et Finance · École Polytechnique & Sorbonne Université",
+      "description": "A course connecting stochastic models with memory and path-signature methods. Created in 2023 and taught annually.",
+      "url": "https://finance.math.upmc.fr/en/enseignements/2_mn_7_fractional_volterra/"
+    },
+    {
+      "level": "Master’s course",
+      "title": "Stochastic Modelling and Derivatives",
+      "institution": "M2 Probabilités et Finance · École Polytechnique & Sorbonne Université",
+      "description": "Stochastic modelling for financial derivatives.",
+      "url": "https://finance.math.upmc.fr/en/enseignements/1_6_proc_stochastiques/"
+    },
+    {
+      "level": "Third-year course",
+      "title": "Quantitative Finance: Models, Data & Learning",
+      "institution": "École Polytechnique · 3A",
+      "description": "Quantitative finance at the interface of mathematical models, data and learning.",
+      "url": "https://moodle.ip-paris.fr/course/view.php?id=19038"
+    },
+    {
+      "level": "Master’s course",
+      "title": "Data Challenge",
+      "institution": "M2 Probabilités et Finance · École Polytechnique & Sorbonne Université",
+      "description": "Learning from data through applied challenges.",
+      "url": "https://challengedata.ens.fr/challenges/167"
+    },
+    {
+      "level": "2024–2025",
+      "title": "Deep Learning in Finance",
+      "institution": "MSc Data Science for Finance · École Polytechnique & HEC",
+      "description": "Applications of deep learning to problems in quantitative finance."
+    },
+    {
+      "level": "Professional education",
+      "title": "Stochastic Calculus, Control and Risk",
+      "institution": "École Polytechnique · BNP Paribas · UM6P",
+      "description": "Executive and professional courses in stochastic calculus and control, volatility modelling, credit risk, market risk and Monte Carlo methods."
+    }
+  ],
+  "talk_archive": [
+    {
+      "title": "Conferences archive",
+      "items": [
+        {
+          "text": "International Conference on Computational Finance 2026, Oxford, UK, September 1-4, 2026. Minisymposium on Memory in Computational Finance + talk on characteristic functions of signatures.",
+          "url": "https://iccf26.web.ox.ac.uk/"
+        },
+        {
+          "text": "Bachelier World Congress XIII , Bologna, Italy, June 29 - July 3, 2026. Minisymposium on Memory in Quantitative Finance + talk on the Fading Memory Signature.",
+          "url": "https://eventi.unibo.it/bachelier"
+        },
+        {
+          "text": "Probability and Mathematical Statistics, Palermo, Italy, June 8 – 12, 2026. Efficient Simulation of Affine Volterra Processes: From Heston to Hawkes.",
+          "url": "https://probabilitypalermo2026.unipa.it/"
+        },
+        {
+          "text": "Mathematics and Machines: Navigating the Transition from Brown to Sustainable Finance, Lorentz center, Lieden, Netherlands, May 26-29, 2026. Fading Memory Signatures for Sequential Modeling. (Invited)",
+          "url": "https://www.lorentzcenter.nl/mathematics-and-machines-from-brown-to-sustainable-finance.html"
+        },
+        {
+          "text": "Stochastic Models and Control Workshop, Tegernsee, Germany, March 24-26, 2026. Hedging with Memory using Signatures (Invited)",
+          "url": "https://stochasticcontrol.org/smc/"
+        },
+        {
+          "text": "Workshop on Quantitative Finance, Siem Reap, Cambodia, March 2-5, 2026. Path-Signatures: Memory and Stationarity (Invited)",
+          "url": "https://sites.google.com/view/simonescotti/accueil/workshop-on-quantitative-finance"
+        },
+        {
+          "text": "Bloomberg Quant BBQ seminar, New York, USA, February 24, 2026. Path-Signatures: Memory and Stationarity (Keynote)",
+          "url": "https://go.bloomberg.com/attend/invite/2-24-26-bloomberg-quant-bbq-seminar-series-february/"
+        },
+        {
+          "text": "Actuarial and Financial Mathematics Conference, Brussels, Belgium, February 2-3, 2026. Volatility dynamics and memory: from the Quintic model to Signatures (Invited)",
+          "url": "https://afmathconf.ugent.be/index.php?page=programme"
+        },
+        {
+          "text": "Advances in Financial Mathematics, Paris, France, January 27-30, 2026. Efficient Simulation of Affine Volterra Processes: From Heston to Hawkes. (Plenary)",
+          "url": "https://fin-risks2026.sciencesconf.org/"
+        },
+        {
+          "text": "Winter School on Mathematical Finance , Soesterberg, January 19-21, 2026. Path-Signatures: Memory and Stationarity (Invited)",
+          "url": "https://staff.fnwi.uva.nl/a.khedher/winterschool/winterschool.html"
+        },
+        {
+          "text": "Journée EDF R&D, Paris, December 18, 2025. Path-Signatures for Time Series: Fading Memory and Time Invariance",
+          "url": ""
+        },
+        {
+          "text": "Research in Options: RiO 2025, Rio, December 3-7, 2025. Efficient Simulation of Affine Volterra Processes: From Heston to Hawkes. (Invited)",
+          "url": "https://doity.com.br/rio2025"
+        },
+        {
+          "text": "Workshop on rough volatility, Berlin, November 21, 2025. Efficient Simulation of Affine Volterra Processes: From Heston to Hawkes. (Invited)",
+          "url": "https://sites.google.com/view/trr388/events/future-events/crcday-rough-volatility"
+        },
+        {
+          "text": "CBOE RMC Quant Conference, Chicago, October 2-3, 2025. Capturing Volatility dynamics with the Quintic model. (Invited)",
+          "url": "https://www.eventcombo.com/ms/ev/74794/rmc-quant-conference/home?eventRoleId="
+        },
+        {
+          "text": "Stochastics & Computational Finance, Lisbon, September 2-5, 2025. Mini-symposium on Memory in Quantitative Finance.",
+          "url": "https://scf2025.iseg.ulisboa.pt/conference_fees.php"
+        },
+        {
+          "text": "SIAM Conference on Financial Mathematics and Engineering, Miami, July 15-18, 2025. Mini-symposium on Memory in Quantitative Finance (opening talk).",
+          "url": "https://www.siam.org/conferences-events/siam-conferences/fm25/"
+        },
+        {
+          "text": "Vienna Congress on Mathematical Finance, WU Vienna, July 9-11, 2025. Volatility dynamics and memory: from the Quintic model to Signatures. (Plenary)",
+          "url": "https://fam.tuwien.ac.at/events/vcmf2025/"
+        },
+        {
+          "text": "AMaMeF Conference, 12th Edition, Verona, Italy, June 23-27, 2025. Heston: struggling with simulation?",
+          "url": "https://sites.google.com/view/amamef2025/"
+        },
+        {
+          "text": "Signatures in 1 and 2 dimensions, Oslo, June 16-20, 2025. Chasing Stationarity with the Fading-Memory Signature. (Invited)",
+          "url": "https://sites.google.com/view/sficas/start/events/signatures-in-1-and-2-dimensions"
+        },
+        {
+          "text": "Stochastic Numerics and Statistical Learning: Theory and Applications Workshop, KAUST University, Saudi Arabia, May 18-22, 2025. Path-Signatures: Memory and Stationarity. (Invited)",
+          "url": "https://cemse.kaust.edu.sa/events/by-type/workshop/2025/05/18/stochastic-numerics-and-statistical-learning-theory-and"
+        },
+        {
+          "text": "XXVI Workshop on Quantitative Finance, Palermo, Italy, April 15-17, 2025. Simulation of square-root processes made simple: applications to the Heston model.",
+          "url": "https://qfw2025.community.unipa.it/"
+        },
+        {
+          "text": "Stochastic & Rough Analysis, Berlin, Germany, April 7-11, 2025. Path-Signatures: Memory and Stationarity. (Invited)",
+          "url": "https://sites.google.com/view/sra2025berlin?usp=sharing"
+        },
+        {
+          "text": "Financial Risks International Forum, Institut Louis Bachelier, Paris, March 18-19, 2025, Struggling with Heston? A New Perspective for Efficient Simulation.",
+          "url": "https://www.risks-forum.org/"
+        },
+        {
+          "text": "Research in Options: RiO 2024, Rio, December 4-8, 2024. From the Quintic OU model to signature volatility models. (Invited)",
+          "url": "https://eventos.fgv.br/research-options-2024"
+        },
+        {
+          "text": "PGMO Days, Palaiseau, November 19-20, 2024. Equilibrium in Functional Stochastic Games with Mean-Field Interaction. (Invited)",
+          "url": "https://www.fondation-hadamard.fr/fr/programmes/les-programmes-thematiques/home/pgmo-days/"
+        },
+        {
+          "text": "Directions in rough analysis, Oberwolfach, November 3-8, 2024. Some path-dependent processes from signatures. (Invited)",
+          "url": "https://www.mfo.de/occasion/2445/www_view"
+        },
+        {
+          "text": "Stochastic control and Games for Risk and Regulation, Hammamet, October 28-31, 2024. Invariance for stochastic Volterra equations. (Invited)",
+          "url": "https://sites.google.com/view/conference-hammamet/home"
+        },
+        {
+          "text": "12th Bachelier World Congress of the Bachelier Finance Society, Rio, July 8-12, 2024. Equilibrium in Functional Stochastic Games with Mean-Field Interaction. (Invited)",
+          "url": "https://eventos.fgv.br/bachelier-2024"
+        },
+        {
+          "text": "Spring Colloquium on Probability and Finance, Padova, April 19, 2024. From the Quintic model to signature volatility models: fast pricing and hedging with Fourier. (Invited)",
+          "url": "https://events.math.unipd.it/SpringColloquium5/node/32"
+        },
+        {
+          "text": "Recent Developments in the Mathematics of Machine Learning, Wuppertal, March 26, 2024. Deep pricing with quantization hints: joint SPX-VIX calibration with Gaussian Polynomial Models. (Invited)",
+          "url": "https://recentdevelopementsinthemathematicsofmachinelearning.uni-wuppertal.de/de/"
+        },
+        {
+          "text": "Advances in Stochastic Analysis for Handling Risks in Finance and Insurance, CIRM Luminy, France, September 11-15, 2023. Equilibrium in Functional Stochastic Games with Mean-Field Interaction (Invited)",
+          "url": "https://conferences.cirm-math.fr/2267.html"
+        },
+        {
+          "text": "Workshop on rough volatility, Isle of Skye, Scotland, May 22-26, 2023. Rough volatility, too smooth? (Invited)",
+          "url": ""
+        },
+        {
+          "text": "Control & Optimisation Pisa 2023, Pisa, Italy, May 8-10, 2023. A direct approach to a class of finite-players and mean-field games. (Invited)",
+          "url": "https://contropt2023.ec.unipi.it/"
+        },
+        {
+          "text": "Workshop Stochastic Control and Risk, Hammamet, Tunisia, April 24-27, 2023. A direct approach to a class of finite-players and mean-field games. (Invited)",
+          "url": "https://sites.google.com/view/workshophammamet/home"
+        },
+        {
+          "text": "London-Paris Bachelier Workshop on Mathematical Finance, Paris, France, September 15-16, 2022, Gaussian Principal-Agent problems with memory. (Invited)",
+          "url": "http://www.bachelier-paris.fr/london-paris-bachelier-workshop/"
+        },
+        {
+          "text": "Modeling of Markets with Complex and Rough Regimes, Online, August 31, 2022. Quadratic Gaussian models: analytic expressions for pricing and portfolio allocation. (Invited)",
+          "url": ""
+        },
+        {
+          "text": "General AMaMeF Conference, 10th Edition, Online, June 22-25, 2021. Quadratic Gaussian models: analytic expressions for pricing and portfolio allocation. (Invited)",
+          "url": "https://events.math.unipd.it/AMAMEF2021/"
+        },
+        {
+          "text": "Stochastic Analysis and Hermite Sobolev Spaces Workshop, Online, June 21-26, 2021. Linear-quadratic control of stochastic Volterra equations. (Invited)",
+          "url": "https://www.stoch-ana-hermite-sobolev.uni-freiburg.de/"
+        },
+        {
+          "text": "ILB Rising Talents in Finance and Insurance, Online, March 26, 2021. The characteristic function of Gaussian stochastic volatility models. (Invited)",
+          "url": "https://www.louisbachelier.org/evenement/webinar-rising-talents-in-finance-and-insurance-session/"
+        },
+        {
+          "text": "QuantMinds International, Online, November 2-6, 2020. Reconciling rough volatility with jumps. (Invited)",
+          "url": "https://informaconnect.com/quantminds-international/"
+        },
+        {
+          "text": "Advances in Financial Mathematics, Paris, France, January 14-17, 2020. A weak solution theory for stochastic Volterra equations. (Invited)",
+          "url": "https://fin-risks2020.sciencesconf.org/"
+        },
+        {
+          "text": "Journées du Centre d'Economie de la Sorbonne, Université Paris 1, Paris, France, November 14, 2019. Rough volatility modeling and stochastic Volterra equations. (Invited)",
+          "url": "http://centredeconomiesorbonne.univ-paris1.fr/actualites/actualite-detaillee-du-ces/article/ces-research-days-2019-competition-makes-us-faster-collaboration-makes-us-better/"
+        },
+        {
+          "text": "Advances in Stochastic Analysis for Handling Risks in Finance and Insurance, CIRM, Luminy, France, October 21-25, 2019. Reconciling rough volatility with jumps. (Invited)",
+          "url": "https://conferences.cirm-math.fr/2265.html"
+        },
+        {
+          "text": "Forum emploi maths, Paris, France, Otcober 15, 2019. The modeling puzzle in the presence of randomness. (AMIES Prize presentation)",
+          "url": "https://www.2019.forum-emploi-maths.com/"
+        },
+        {
+          "text": "Vienna Congress on Mathematical Finance, Vienna, Austria, September 9-13, 2019. Reconciling hyper-rough volatility with jumps.",
+          "url": "https://fam.tuwien.ac.at/events/vcmf2019/"
+        },
+        {
+          "text": "General AMaMeF Conference, 9th Edition, Paris, France, June 11-14, 2019. Quadratic Volterra processes and multivariate rough volatility modeling. (Invited)",
+          "url": "https://9amamef.sciencesconf.org/resource/page/id/7"
+        },
+        {
+          "text": "Non linear methods for risk management, Paris, France, October 9, 2018. Lifting the Heston model. (Invited)",
+          "url": "https://nonlinearrisk.sciencesconf.org/"
+        },
+        {
+          "text": "Workshop on Finance, Insurance, Probability and Statistics, London, England, September 10-11, 2018. Lifting the Heston model (poster).",
+          "url": "https://wwwf.imperial.ac.uk/~ajacquie/FIPS2018/"
+        },
+        {
+          "text": "European Summer School in Financial Mathematics, 11th Edition, Palaiseau, France, August 27-31, 2018. Lifting the Heston model.",
+          "url": "http://www.cmap.polytechnique.fr/~euroschoolmathfi18/index.html"
+        },
+        {
+          "text": "Bachelier Finance Society, 10th world congress, Dublin, Ireland, July 16-20, 2018. Markovian structure of the Volterra Heston model.",
+          "url": "http://bacheliercongress2018.com/registration/"
+        },
+        {
+          "text": "IWAP, 9th International Workshop on Applied Probability, Budapest, Hungary, June 18-21, 2018. The Volterra square-root process: Markovian structure and approximation.",
+          "url": "https://iwap2018.com/"
+        },
+        {
+          "text": "Workshop \"Long-range fractional processes in Finance\", Ecole Polytechnique, Palaiseau, France, June 11, 2018. Lifting the Heston model. (Invited)",
+          "url": "http://www.centre-cournot.org/inscription-conf_en.html"
+        },
+        {
+          "text": "Workshop \"Robust Finance\", Freiburg, Germany, May 16-18, 2018. Lifting the Heston model. (Invited)",
+          "url": "https://www.frias.uni-freiburg.de/de/foerderprogramme/frias-projektgruppen/model-risk/robust-finance"
+        },
+        {
+          "text": "Berlin-Paris Young researchers Workshop, 2nd Edition, Stochastic Analysis with applications in Biology and Finance, Paris, France, May 2-4, 2018. Affine Volterra processes. (Invited)",
+          "url": "https://bpy2018.wixsite.com/bpstochastics"
+        },
+        {
+          "text": "German Probability and Statistics Days 2018, 13th Edition, Freiburg, Germany, February 27 - March 2, 2018. Affine Volterra processes.",
+          "url": "https://www.gpsd-2018.de/"
+        },
+        {
+          "text": "Workshop on Quantitative Finance, XIX Edition, Roma, Italy, January 24-26, 2018. Affine Volterra processes.",
+          "url": "http://disa.uniroma3.it/qfw2018/"
+        },
+        {
+          "text": "Bachelier Colloquium, Twelfth Colloquium on Mathematical Finance and Stochastic Calculus, Métabief, France, January 15-20, 2018. Affine Volterra processes.",
+          "url": "http://ykabanov.perso.math.cnrs.fr/Bachelier2018/programmes%20fr/index_B3_fr.html"
+        },
+        {
+          "text": "International Conference on Computational Finance, 2nd Edition, Lisbon, Portugal, September 4 - 8, 2017. Stochastic invariance and applications. (Invited)",
+          "url": "http://cemapre.iseg.ulisboa.pt/iccf2017/"
+        },
+        {
+          "text": "European Summer School in Financial Mathematics, 10th Edition, Dresden, Germany, August 28 - September 1, 2017. Affine Volterra processes.",
+          "url": "https://www.math.tu-dresden.de/euroschoolmathfi17/"
+        },
+        {
+          "text": "Stochastic Processes and their Applications, 39th Conference, Moscow, Russia, July 24-28, 2017. Stochastic invariance and applications.",
+          "url": "http://www.spa2017.org/"
+        },
+        {
+          "text": "General AMaMeF Conference, 8th Edition, Amsterdam, Netherlands, June 19-23, 2017. Stochastic invariance and applications.",
+          "url": "http://8amamef.nl/"
+        },
+        {
+          "text": "Workshop on Quantitative Finance, XVIII Edition, Milano, Italy, January 25-27, 2017. Stochastic invariance of closed sets with non-Lipschitz coefficients. [slides]",
+          "url": "https://sites.google.com/site/qfw2017/home"
+        },
+        {
+          "text": "Market Microstructure Confronting Many viewpoints, #4, Paris, France, December 6-9, 2016, Stochastic invariance of closed sets with non-Lipschitz coefficients. [slides]",
+          "url": "http://market-microstructure.institutlouisbachelier.org/?lng=EN%5C#.WC3_afkrKM9"
+        },
+        {
+          "text": "Berlin-Paris Young Researchers Workshop, Stochastic Analysis with applications in Biology and Finance, Berlin, Germany, November 2-4, 2016. Stochastic invariance of closed sets with non-Lipschitz coefficients. [poster]",
+          "url": "http://www3.math.tu-berlin.de/stoch/BPY2016/index.htm"
+        },
+        {
+          "text": "London-Paris Bachelier Workshop on Mathematical Finance, Paris, France, September 29-30, 2016. Stochastic invariance of closed sets with non-Lipschitz coefficients. [poster]",
+          "url": "http://www.bachelier-paris.fr/london-paris-bachelier-workshop/"
+        }
+      ]
+    },
+    {
+      "title": "Seminars archive",
+      "items": [
+        {
+          "text": "Math-Finance seminar, Centrale Supélec, March 19, 2026. Efficient Simulation of Affine Volterra Processes: From Heston to Hawkes.",
+          "url": ""
+        },
+        {
+          "text": "Joint SIAM-BFS Mathematical Finance Online Seminar, Online, March 12, 2026. Path-Signatures: Memory and Stationarity",
+          "url": "https://www.bachelierfinance.org/joint-siam-bfs-mathematical-finance-online-seminar"
+        },
+        {
+          "text": "Seminar Morgan Stanley, Paris, December 16, 2025. Signatures expansions for pricing and hedging.",
+          "url": "http://a"
+        },
+        {
+          "text": "Mathematical Finance Seminar, Bielefeld, November 19, 2025. Efficient Simulation of Affine Volterra Processes: From Heston to Hawkes.",
+          "url": "https://www.uni-bielefeld.de/zwe/imw/research/seminars/math-finance-seminar/"
+        },
+        {
+          "text": "Seminar Credit Agricole, Paris, June 19, 2025. Volatility dynamics and memory: from the Quintic model to Signatures.",
+          "url": ""
+        },
+        {
+          "text": "Seminar BNP Paribas, Paris, May 28, 2025. Volatility dynamics and memory: from the Quintic model to Signatures.",
+          "url": ""
+        },
+        {
+          "text": "Seminar in Mathematical Finance, BI Norwegian Business School, April 24, 2025. From the Quintic model to signatures volatility models.",
+          "url": ""
+        },
+        {
+          "text": "Groupe de Travail MathsFi, Ecole Polytechnique, February 12, 2025. A new perspective for simulating square-root processes and Heston models.",
+          "url": "https://cmap.ip-paris.fr/seminaires/gdt-mathsfi"
+        },
+        {
+          "text": "Rough Path Interest Group, Online, February 5, 2025. Some path-dependent processes from signatures.",
+          "url": "https://www.datasig.ac.uk/events#/"
+        },
+        {
+          "text": "Stochastic and Finance seminar, University of Warwick, Warwick, January 15, 2025. Stochastic Fredholm equations: a passe-partout for propagator models and market impact.",
+          "url": "https://warwick.ac.uk/fac/sci/statistics/research/stochastic-finance-at-warwick/seminar/"
+        },
+        {
+          "text": "Finance and Stochastics seminar, Imperial College, London, October 22, 2024. Stochastic Fredholm equations: a passe-partout for propagator models and market impact.",
+          "url": "https://www.imperial.ac.uk/mathematical-finance/events/finance-and-stochastics/"
+        },
+        {
+          "text": "Mathematical Finance Seminar Series, Columbia University, New York, October 3, 2024, from the Quintic model to signature volatility models.",
+          "url": "https://stat.columbia.edu/seminars/mathematical-finance-seminar-series/"
+        },
+        {
+          "text": "FS Stochastische Analysis, TU Berlin, June 13, 2024. Stochastic Fredholm equations: a passe-partout for propagator models with cross-impact, constraints and mean-field interactions.",
+          "url": "https://www.mathematik.hu-berlin.de/de/forschung/fs-stoch-analysis"
+        },
+        {
+          "text": "Berlin Probability Colloquium, Berlin, June 12, 2024. Some path-dependent processes from signatures.",
+          "url": "https://www3.math.tu-berlin.de/stoch/IRTG/news/"
+        },
+        {
+          "text": "Séminaire de Probabilités et Statistique, Le Mans Université, May 14, 2024. Signature volatility models: pricing and hedging with Fourier.",
+          "url": "https://lmm.univ-lemans.fr/fr/seminaires-conferences/seminaires.html"
+        },
+        {
+          "text": "Stochastic Analysis & Mathematical Finance Seminars, Oxford, April 22, 2024. From the Quintic model to signature volatility models: fast pricing and hedging with Fourier.",
+          "url": "https://www.maths.ox.ac.uk/events/list/3655"
+        },
+        {
+          "text": "Risk & Stochastics and Financial Mathematics Seminar, London School of Economics, February 7, 2024. Signature volatility models: pricing and hedging with Fourier.",
+          "url": "https://www.lse.ac.uk/Mathematics/Events-and-Seminars/Joint-Risk-Stochastics-and-Financial-Mathematics-Seminar"
+        },
+        {
+          "text": "Groupe de Travail Mathématiques financières et probabilités, LPSM, November 23, 2023. From the Quintic OU model that jointly calibrates SPX-VIX smiles to signature volatility models.",
+          "url": "https://www.lpsm.paris/seminaires/gtfinanceprobanumeriques/index"
+        },
+        {
+          "text": "Séminaire de Probabilités, Ecole Polytechnique, October 24, 2023.",
+          "url": ""
+        },
+        {
+          "text": "Seminar of the Department of Economics and Finance, Luiss University, Rome, September 21, 2023. Equilibrium in Functional Stochastic Games with Mean-Field Interaction.",
+          "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4470883"
+        },
+        {
+          "text": "Seminar on Finance & Modeling, Université Paris 1, France, April 17, 2023. The Quintic model that jointly calibrates SPX/VIX.",
+          "url": ""
+        },
+        {
+          "text": "Finance and Stochastics seminar, Imperial College, London, England, March 28, 2023. From the Quintic model that jointly calibrates SPX/VIX to Sig-Volatility models.",
+          "url": "https://www.imperial.ac.uk/mathematical-finance/events/finance-and-stochastics/"
+        },
+        {
+          "text": "Séminaire FDD-FIME, Institut Henri Poincaré, December 16, 2022, Optimal execution with transient impact and signals.",
+          "url": "https://www.fime-lab.org/events/liste/"
+        },
+        {
+          "text": "STAR seminar, University of Oslo, Online, May 6, 2022. Quadratic Gaussian models: analytic expressions for pricing and portfolio allocation.",
+          "url": "https://www.mn.uio.no/math/english/research/projects/storm/events/seminars/star-online-seminars/"
+        },
+        {
+          "text": "Talks in Financial and Insurance Mathematics, ETH-Zürich, Switzerland, April 28, 2022. Quadratic Gaussian models: analytic expressions for pricing and portfolio allocation.",
+          "url": "https://math.ethz.ch/imsf/courses/talks-in-imsf.html"
+        },
+        {
+          "text": "Séminaire Bachelier, January 14, 2021, Deep pricing with quantization hints.",
+          "url": "http://www.bachelier-paris.fr/"
+        },
+        {
+          "text": "Osaka Webinar on Mathematical Finance, Online, November 25, 2021, Quadratic Gaussian models: analytic expressions for pricing and portfolio allocation.",
+          "url": "https://sites.google.com/view/omfseminar/home"
+        },
+        {
+          "text": "Berlin Probability Colloquium of the International Research Training Group (IRTG), June 2, 2021, Stochastic Volterra equations : theory, numerics and control.",
+          "url": "https://www3.math.tu-berlin.de/stoch/IRTG/"
+        },
+        {
+          "text": "Séminaire Bachelier, February 4, 2021, Quadratic Gaussian models: analytic expressions for pricing and portfolio allocation.",
+          "url": "http://www.bachelier-paris.fr/"
+        },
+        {
+          "text": "Groupe de Travail: Finance mathématique, probabilités numériques et statistique des processus, Université Paris Diderot, January 21, 2021, Quadratic Gaussian models: analytic expressions for pricing and portfolio allocation.",
+          "url": "https://www.lpsm.paris/mathfipronum/gt"
+        },
+        {
+          "text": "Groupe de Travail Probabilités et Mathématiques financières, Université d'Evry, Evry, France, November 12, 2020. Linear-quadratic control of stochastic Volterra equations.",
+          "url": "http://www.math-evry.cnrs.fr/doku.php"
+        },
+        {
+          "text": "Séminaire du SAMM, Université Paris 1, Paris, France, October 23, 2020. Linear-quadratic control of stochastic Volterra equations.",
+          "url": "http://samm.univ-paris1.fr/-Seminaire-du-SAMM-"
+        },
+        {
+          "text": "Finance and Stochastics seminar, Imperial College, London, England, March 11, 2020. Linear-quadratic control of stochastic Volterra equations.",
+          "url": "https://www.imperial.ac.uk/mathematical-finance/events/finance-and-stochastics/"
+        },
+        {
+          "text": "Risk & Stochastics and Financial Mathematics Seminar, London School of Economics, London, England, March 12, 2020. Reconciling rough volatility with jumps.",
+          "url": "http://www.lse.ac.uk/Mathematics/Events-and-Seminars/Joint-Risk-Stochastics-and-Financial-Mathematics-Seminar"
+        },
+        {
+          "text": "Vienna Seminar in Mathematical Finance and Probability, Vienna University, Austria, January 30, 2020. Linear-quadratic control of stochastic Volterra equations.",
+          "url": "https://fam.tuwien.ac.at/events/vs-mfp/"
+        },
+        {
+          "text": "Séminaire Bachelier, Paris, France, December 13, 2019. Linear-quadratic control of stochastic Volterra equations.",
+          "url": "http://www.bachelier-paris.fr/programme/"
+        },
+        {
+          "text": "Talks in Financial and Insurance Mathematics, ETH-Zürich, Switzerland, October 29, 2019. Linear quadratic control of stochastic Volterra equations.",
+          "url": "https://math.ethz.ch/imsf/courses/talks-in-imsf.html"
+        },
+        {
+          "text": "Seminar on Finance & Modeling, Université Paris 1, France, October 16, 2019. Invariance and viability: from finite dimensional ODEs to infinite dimensional SDEs.",
+          "url": ""
+        },
+        {
+          "text": "Séminaire du SAMM, Université Paris 1, Paris, France, October 11, 2019. Stochastic Volterra equations.",
+          "url": "http://samm.univ-paris1.fr/-Seminaire-du-SAMM-"
+        },
+        {
+          "text": "Groupe de Travail Méthodes Stochastiques et Finance, Ecole des Ponts, INRIA & Université Paris Est, Noisy, France, April 18, 2019. Affine and quadratic Volterra processes and applications.",
+          "url": "http://cermics.enpc.fr/~alfonsi/GTMSF.html"
+        },
+        {
+          "text": "Matinée scientifique du Ceremade, Université Dauphine, Paris, France, January 15, 2019. Stochastic Volterra equations.",
+          "url": ""
+        },
+        {
+          "text": "Stochastic Analysis and Stochastics of Financial Markets, Humboldt/TU Universities, Berlin, Germany, November 8, 2018. Lifting the Heston model.",
+          "url": "https://www.mathematik.hu-berlin.de/de/forschung/fs-stoch-analysis"
+        },
+        {
+          "text": "Groupe de Travail Probabilités et Mathématiques financières, Université d'Evry, Evry, France, February 1, 2018. Affine Volterra processes.",
+          "url": "http://www.math-evry.cnrs.fr/doku.php"
+        },
+        {
+          "text": "Groupe de Travail Méthodes Stochastiques et Finance, Ecole des Ponts, INRIA & Université Paris Est, Noisy, France, October 19, 2017. Affine Volterra processes.",
+          "url": "http://cermics.enpc.fr/~alfonsi/GTMSF.html"
+        },
+        {
+          "text": "Post/Doctoral Seminar in Mathematical Finance, ETH-Zürich, Switzerland, October 10, 2017. The Volterra square-root process.",
+          "url": "https://www.math.ethz.ch/imsf/courses/mf-seminar.html"
+        },
+        {
+          "text": "Séminaires de l’équipe de Probabilités et Statistiques, Université Paris 13, Paris, France, May 17, 2017. Stochastic invariance and applications. [slides]",
+          "url": "https://www.math.univ-paris13.fr/laga/index.php/fr/ps/seminaires"
+        },
+        {
+          "text": "Séminaire des Jeunes Chercheurs du Ceremade, Université Paris Dauphine, Paris, France, February 23, 2017, Invariance of closed sets, from regular ODEs to irregular SDEs. [slides]",
+          "url": "https://sites.google.com/site/jeuneschercheursceremade/programme-du-seminaire/exposes-2016-2017"
+        },
+        {
+          "text": "PhD Students' Day - CEREMADE, Université Paris Dauphine, Paris, France, October 20, 2016. Invariance of closed sets, an intuitive overview. [slides]",
+          "url": "https://drive.google.com/open?id=0B3Cz0ajPxaJfLWxFQzlXaWtQSzg"
+        },
+        {
+          "text": "Groupe de Travail Méthodes Stochastiques et Finance, Ecole des Ponts, INRIA & Université Paris Est, Noisy, France, October 13, 2016. Stochastic invariance of closed sets with non-Lipschitz coefficients. [slides]",
+          "url": "http://cermics.enpc.fr/~alfonsi/GTMSF.html"
+        }
+      ]
+    }
+  ]
+}

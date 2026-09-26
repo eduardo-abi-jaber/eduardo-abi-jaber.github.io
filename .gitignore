@@ -1,0 +1,5 @@
+__pycache__/
+.DS_Store
+source-google.html
+prepare_content.py
+cv-build/
