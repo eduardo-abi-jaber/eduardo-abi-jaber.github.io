@@ -157,6 +157,7 @@ teaching+='<li><strong>2019–2022 · Université Paris 1 Panthéon-Sorbonne:</s
 page('teaching.html','Teaching','Graduate courses and professional education in stochastic modelling, quantitative finance and machine learning.',teaching+'<div class="page-body"></div>')
 
 talks='<div class="page-intro"><h1>Talks &amp; minicourses</h1></div>'
+talks+='<section class="section"><h2>Minicourses</h2><div class="events">'+''.join(event(e) for e in CONFIG['minicourses'])+'</div></section>'
 def highlighted(text):
     return re.sub(r'(?i)\b(invited|plenary|keynote)\b',r'<strong class="talk-distinction">\1</strong>',esc(text))
 for group in CONFIG.get('talk_archive',[]):
@@ -169,7 +170,6 @@ for group in CONFIG.get('talk_archive',[]):
         else:text=label
         talks+=f'<li>{text}</li>'
     talks+='</ul></details>'
-talks+='<section class="section"><h2>Minicourses</h2><div class="events">'+''.join(event(e) for e in CONFIG['minicourses'])+'</div></section>'
 page('talks.html','Talks & minicourses','Conferences, seminars and minicourses by Eduardo Abi Jaber.',talks+'<div class="page-body"></div>')
 (OUT/'.nojekyll').touch()
 print('Built',len(list(OUT.glob('*.html'))),'pages in',OUT)
