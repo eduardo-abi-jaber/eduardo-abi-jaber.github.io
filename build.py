@@ -5,6 +5,8 @@ from html import escape as esc
 
 ROOT=Path(__file__).parent
 OUT=ROOT/'dist'
+# Rebuild from a clean output directory so removed pages cannot linger.
+if OUT.exists(): shutil.rmtree(OUT)
 OUT.mkdir(exist_ok=True)
 shutil.copytree(ROOT/'assets',OUT/'assets',dirs_exist_ok=True)
 PUBS=json.loads((ROOT/'publications.json').read_text())
@@ -22,6 +24,30 @@ def link(label):
 def ext(url,label,cls=''):
     attrs=' target="_blank" rel="noopener noreferrer"' if url.startswith(('https://','http://','//')) else ''
     return f'<a href="{esc(url,quote=True)}" class="{cls}"{attrs}>{esc(label)}</a>'
+PERSON_LINKS={}
+for publication in PUBS:
+    for entry in publication['links'][1:]:
+        if publication['details'].startswith('with ') and entry['label'] in publication['details'].split(', 20')[0]:
+            if not any(term in entry['label'] for term in ('Finance','Probability','Stochastic','Magazine','Journal','Awards','notebook')):
+                PERSON_LINKS[entry['label']]=entry['url']
+for group in CONFIG['people']:
+    for person in group['members']:
+        if person.get('url'): PERSON_LINKS[person['name']]=person['url']
+PERSON_LINKS['Edouard Motte']=PERSON_LINKS['Édouard Motte']
+def linked_text(text,extra=None):
+    destinations=dict(PERSON_LINKS)
+    if extra: destinations.update(extra)
+    names=sorted((name for name in destinations if name in text),key=len,reverse=True)
+    if not names: return esc(text)
+    pattern=re.compile('|'.join(re.escape(name) for name in names))
+    result=[];cursor=0
+    for match in pattern.finditer(text):
+        result.append(esc(text[cursor:match.start()]))
+        result.append(ext(destinations[match.group()],match.group(),'inline-link'))
+        cursor=match.end()
+    result.append(esc(text[cursor:]))
+    return ''.join(result)
+
 def intro(kicker,title,description):
     return f'<div class="page-intro"><p class="eyebrow">{kicker}</p><h1>{title}</h1><p class="lead">{description}</p></div>'
 def paper(p,number=None):
@@ -29,11 +55,11 @@ def paper(p,number=None):
     year=dates[0] if dates else 'Accepted'
     detail=re.sub(r'\s*\(Jupyter notebook\)', '',p['details'])
     detail=detail.replace('🌟','').replace(' ( )','').strip()
-    detail_html=esc(detail)
-    journals=('Bernoulli','Finance and Stochastics','Finance & Stochastics','Mathematical Finance','Quantitative Finance','Stochastic Systems','Stochastic Processes and their Applications','Annals of Applied Probability','The Annals of Applied Probability','Electronic Journal of Probability','Electronic Communications in Probability','SIAM Journal on Financial Mathematics','SIAM Journal on Control and Optimization','Statistics & Probability Letters','Risk Magazine','Risk Magazine (Cutting Edge Section)')
-    for a in p['links'][1:]:
-        if a['label'] in journals and '/editorial-board' not in a['url']:
-            detail_html=detail_html.replace(esc(a['label']),ext(a['url'],a['label'],'journal-link'),1)
+    journal_links={}
+    for entry in p['links'][1:]:
+        if entry['label'] not in PERSON_LINKS and '/editorial-board' not in entry['url'] and 'notebook' not in entry['label'].lower():
+            journal_links[entry['label']]=entry['url']
+    detail_html=linked_text(detail,journal_links)
     marker=f'[{number}]' if number is not None else esc(year)
     actions='' 
     for a in p['links'][1:]:
@@ -42,7 +68,7 @@ def paper(p,number=None):
     return f'<article class="paper"><div class="paper-year">{marker}</div><div><h3>{ext(p["url"],p["title"])}</h3><p>{detail_html}</p>{actions_html}</div></article>'
 def page(filename,title,description,content):
     nav=''
-    for file,label in [('publications.html','Publications'),('people.html','People'),('teaching.html','Teaching'),('talks.html','Talks')]:
+    for file,label in [('publications.html','Publications'),('people.html','Research Group'),('teaching.html','Teaching'),('talks.html','Talks')]:
         current=' aria-current="page"' if file==filename else ''
         nav+=f'<a href="{file}"{current}>{label}</a>'
     canonical=CONFIG.get('site_url','').rstrip('/')
@@ -88,64 +114,62 @@ target="_blank" rel="noopener noreferrer">PhD thesis</a>
 in 2018.
 </p><div class="links profile-links">{profile_links}</div></div><figure class="portrait-wrap"><div class="portrait">{photo}</div></figure></section>
 <div class="research-band"><div>Volterra processes</div><div>Path signatures &amp; learning</div><div>Mathematical Finance</div><div>Volatility Modeling</div></div>'''
-academic_info=f'''
-<section class="section">
-  <h2>Teaching</h2>
-  <p class="lead">Current courses and student projects.</p>
-  <ul>
-    <li>{ext(
-      'https://finance.math.upmc.fr/en/enseignements/1_6_proc_stochastiques/',
-      'Stochastic modelling and derivatives'
-    )} — M2 Probabilité et Finance, École Polytechnique–Sorbonne Université.</li>
-  </ul>
-</section>
-'''
+academic_info='<section class="section academic-overview"><div><h2>Current teaching</h2><ul class="teaching-list">'
+for course in CONFIG['courses']:
+    academic_info+=f'<li>{ext(course["url"],course["title"],"inline-link")}<span>{esc(course["institution"])}</span></li>'
+academic_info+='</ul></div><div class="service-awards"><h2>Academic service</h2><p>I serve as Associate Editor for '+ext('https://onlinelibrary.wiley.com/journal/14679965','Mathematical Finance','inline-link')+', '+ext('https://link.springer.com/journal/780/editorial-board','Finance and Stochastics','inline-link')+' and '+ext('https://www.worldscientific.com/page/ijtaf/editorial-board','International Journal of Theoretical and Applied Finance','inline-link')+', since 2026.</p><h2>🌟 Awards</h2><ul><li>'+ext('https://www.agence-maths-entreprises.fr/a/?q=fr/prix-de-these','AMIES PhD Award','inline-link')+', best PhD in applied mathematics in collaboration with industry, 2019.</li><li>'+ext('http://www.bachelierfinance.org/awards/junior-scholar-award.html','Bachelier Finance Society Junior Scholar Award','inline-link')+', most outstanding paper, 2018.</li></ul></div></section>'
 latest='<section class="section"><div class="section-top"><div><p class="eyebrow">Recent work</p><h2>New papers</h2></div><a class="text-link" href="publications.html">All publications</a></div>'+''.join(paper(p) for p in PUBS[:3])+'</section>'
 events=CONFIG['upcoming']
-def event(e):return f'<article class="event"><div class="meta">{esc(e["date"])} · {esc(e["place"])}</div><h3>{ext(e["url"],e["name"])}</h3><p>{esc(e.get("topic",""))}</p></article>'
-next_events='<section class="section split"><div><h2>Upcoming talks</h2><a class="text-link" href="talks.html">Talks &amp; minicourses</a></div><div class="events">'+''.join(event(e) for e in events[:3])+'</div></section>'
-page('index.html','Home','Eduardo Abi Jaber, Professor of Applied Mathematics at École Polytechnique. Stochastic systems with memory, Volterra processes, control and path signatures.',hero+latest+next_events)
+def event(e):return f'<article class="event"><div class="meta">{esc(e["date"])} · {esc(e["place"])}</div><h3>{ext(e["url"],e["name"])}</h3><p>{linked_text(e.get("topic",""))}</p></article>'
+next_events='<section class="section split"><div><h2>Upcoming talks</h2><a class="text-link" href="talks.html">Talks &amp; minicourses</a></div><div class="events">'+''.join(event(e) for e in events)+'</div></section>'
+page('index.html','Home','Eduardo Abi Jaber, Professor of Applied Mathematics at École Polytechnique. Stochastic systems with memory, Volterra processes, control and path signatures.',hero+academic_info+latest+next_events)
 
-# research=intro('Research','Modelling, controlling<br>and learning memory.','Many stochastic systems depend on the path that brought them to their present state. I develop mathematical foundations and computational methods for this dependence on history.')
-# topics=[('01','Volterra processes and volatility','Volterra processes provide a flexible language for memory through kernels that weight the influence of past events. My work addresses existence, uniqueness, affine and polynomial structures, and the approximation and simulation of these processes.','These foundations lead to models that can be calibrated and simulated, with applications to volatility and the management of financial and energy-market risks.','Affine Volterra processes'),('02','Control and decisions with memory','When risk or the effects of an action persist over time, decisions must account for their history. I study stochastic control, portfolio allocation, optimal execution and interactions between agents.','The methods include operator Riccati equations and integral equations of Fredholm type, with applications ranging from financial trading to electricity storage.','Optimal Liquidation with Signals: the General Propagator Case'),('03','Path signatures and learning','Path signatures encode information about trajectories. My research uses them to construct path-dependent processes, price and hedge derivatives, and learn temporal dependencies from data.','The Exponentially Fading Memory Signature represents the past with a decreasing, parametrised memory, connecting signature methods to stationary time series and sequential learning.','Exponentially Fading Memory Signature')]
-# for number,title,p1,p2,work in topics:
-#    research+=f'<section class="research-block"><span class="number">{number}</span><div><h2>{title}</h2><p>{p1}</p><p>{p2}</p>{ext(link(work),work,"text-link")}</div></section>'
-# research+='''<section class="partners"><h3>Research in dialogue with industry</h3><p>Problems from finance and energy motivate new mathematical questions and guide the development of practical methods. Collaborations include ENGIE Global Markets, AXA Investment Managers, BNP Paribas, CACIB and GEFIP.</p><p>Examples include joint historical and implied calibration in energy markets with ENGIE, and joint SPX–VIX volatility modelling with AXA Investment Managers.</p></section>'''
-# research+='<section class="section"><p class="eyebrow">Academic service &amp; recognition</p><div class="service"><p><strong>Associate editor</strong> of Mathematical Finance, Finance and Stochastics, and the International Journal of Theoretical and Applied Finance, since 2026.</p><p><strong>AMIES PhD Award (2019)</strong> for doctoral research in collaboration with industry; <strong>Bachelier Finance Society Junior Scholar Award (2018)</strong>.</p><p>'+ext(link('Volterra Processes in Finance'),'Habilitation: Volterra Processes in Finance (2024)','text-link')+'</p><p>'+ext(link('Stochastic invariance and stochastic Volterra equations'),'PhD thesis (2018)','text-link')+'</p></div></section>'
-# page('research.html','Research','Research on Volterra processes, stochastic control and path signatures, with applications in finance and energy.',research)
 pubintro='<div class="page-intro"><h1>Publications</h1></div>'
 page('publications.html','Publications','Research papers and preprints by Eduardo Abi Jaber, with manuscript and code links.',pubintro+'<div class="page-body">'+''.join(paper(p,len(PUBS)-i) for i,p in enumerate(PUBS))+'</div>')
 
-people=intro('Research group','People','Doctoral and postdoctoral research at the intersection of probability, mathematical finance and learning.')
+people='<div class="page-intro"><h1>Research Group</h1><p class="lead">I enjoy building a collaborative team where we develop ideas together, learn from one another and explore new mathematical questions. If you are interested in joining the group, please '+ext('mailto:'+EMAIL,'get in touch','inline-link')+'.</p></div>' 
 for group in CONFIG['people']:
     people+=f'<section><h2 class="subhead">{esc(group["title"])}</h2><div class="people-grid">'
     for person in group['members']:
         name=ext(person['url'],person['name']) if person.get('url') else esc(person['name'])
-        people+=f'<article class="person"><h3>{name}</h3><p class="dates">{esc(person["dates"])} · {esc(person["institution"])}</p><p>{esc(person.get("supervision",""))}</p>'
+        people+=f'<article class="person"><h3>{name}</h3><p class="dates">{esc(person["dates"])}{(" · "+esc(person["institution"])) if person["institution"] else ""}</p><p>{linked_text(person.get("supervision",""))}</p>'
         if person.get('partner'):people+=f'<p>CIFRE partnership: {esc(person["partner"])}</p>'
         if person.get('position'):people+=f'<p class="position">Now: {esc(person["position"])}</p>'
         if person.get('award'):people+=f'<p class="award">{esc(person["award"])}</p>'
         people+='</article>'
     people+='</div></section>'
-people+='<p class="service">Édouard Motte was a visiting doctoral researcher in 2025. My teaching and mentoring also include master’s research projects and internships in academia and industry.</p>'
-page('people.html','People','Current doctoral researchers, postdoctoral researchers and alumni supervised by Eduardo Abi Jaber.',people+'<div class="page-body"></div>')
+page('people.html','Research Group','Current doctoral researchers, postdoctoral researchers and alumni supervised by Eduardo Abi Jaber.',people+'<div class="page-body"></div>')
 
 teaching=intro('Teaching','From foundations<br>to applications.','Courses in stochastic modelling, memory, quantitative finance and learning, for graduate students and practitioners.')
 for c in CONFIG['courses']:
     teaching+=f'<article class="course"><div class="label">{esc(c["level"])}</div><div><h3>{esc(c["title"])}</h3><p>{esc(c["institution"])}</p><p>{esc(c["description"])}</p>'
     if c.get('url'):teaching+=ext(c['url'],'Course information','text-link')
     teaching+='</div></article>'
-teaching+='''<section class="partners"><h3>Academic leadership</h3><p>Head of the third-year Applied Mathematics track at École Polytechnique since 2024, with responsibility for internship modules and practitioner seminars since 2022.</p><p>Previously Director of Studies of the M2 IRFA programme at Université Paris 1 Panthéon-Sorbonne (2020–2022).</p></section>'''
+teaching+="""<section class="section"><h2>Previous teaching</h2>
+<details class="archive" open><summary>Lectures</summary><ul>
+<li><strong>2022–2025 · École Polytechnique:</strong> Deep Learning in Finance (MSc Data Science in Finance, École Polytechnique–HEC).</li>
+<li><strong>2021–2022 · ENSAE:</strong> Numerical Methods in Financial Engineering (3A, 12h); Introduction to Mathematical Finance (2A, 18h).</li>
+<li><strong>2019–2022 · Université Paris 1 Panthéon-Sorbonne:</strong> Market Risk Measures (M2, 18h); Calibration in Quantitative Finance (M2, 18h); Topics in Machine Learning (M2, 18h).</li>
+</ul></details><details class="archive" open><summary>Tutorial classes</summary><ul>
+<li><strong>2022 · École Polytechnique:</strong> Markov Chains and Martingales (MAP432, 20h).</li>
+"""
+teaching+='<li><strong>2019–2022 · Université Paris 1 Panthéon-Sorbonne:</strong> Mathematics of Insurance and Risks ('+ext('http://www.m2irfa.fr/','M2')+', 16h); Mathematical Finance (M1, 24h); Integration and Probability ('+ext('https://www.pantheonsorbonne.fr/ufr/ufr27/acces-l1/licence-miashs/','L3')+', 42h); Analysis ('+ext('https://www.pantheonsorbonne.fr/ufr/ufr27/acces-l1/licence-miashs/','L3')+', 42h); Linear Algebra (L2, 30h).</li><li><strong>2016–2018 · Université Paris Dauphine:</strong> Jump Processes, Valuation and No Arbitrage ('+ext('https://www.ceremade.dauphine.fr/mastermasef/fr/','M2 MASEF')+').</li></ul></details></section>'
 page('teaching.html','Teaching','Graduate courses and professional education in stochastic modelling, quantitative finance and machine learning.',teaching+'<div class="page-body"></div>')
 
-talks=intro('Talks &amp; minicourses','Sharing ideas.','Selected lectures and upcoming presentations, alongside an archive of conferences and seminars.')
-talks+='<h2 class="subhead">Upcoming</h2><div class="events">'+''.join(event(e) for e in events)+'</div><h2 class="subhead">Selected lectures &amp; minicourses</h2><div class="events">'
-for e in CONFIG['selected_talks']:talks+=event(e)
-talks+='</div>'
+talks='<div class="page-intro"><h1>Talks &amp; minicourses</h1></div>'
+def highlighted(text):
+    return re.sub(r'(?i)\b(invited|plenary|keynote)\b',r'<strong class="talk-distinction">\1</strong>',esc(text))
 for group in CONFIG.get('talk_archive',[]):
-    talks+=f'<details class="archive"><summary>{esc(group["title"])}</summary><ul>'
-    for item in group['items']:talks+=f'<li>{ext(item["url"],item["text"]) if item.get("url") else esc(item["text"])}</li>'
+    title=group['title'].replace(' archive','')
+    talks+=f'<details class="archive" open><summary>{esc(title)}</summary><ul>'
+    for item in group['items']:
+        label=highlighted(item['text'])
+        if item.get('url') and item['url'] not in ('http://a','https://a'):
+            text=ext(item['url'],item['text']).replace(esc(item['text']),label)
+        else:text=label
+        talks+=f'<li>{text}</li>'
     talks+='</ul></details>'
-page('talks.html','Talks','Upcoming talks, invited lectures and minicourses by Eduardo Abi Jaber.',talks+'<div class="page-body"></div>')
+talks+='<section class="section"><h2>Minicourses</h2><div class="events">'+''.join(event(e) for e in CONFIG['minicourses'])+'</div></section>'
+page('talks.html','Talks & minicourses','Conferences, seminars and minicourses by Eduardo Abi Jaber.',talks+'<div class="page-body"></div>')
 (OUT/'.nojekyll').touch()
-print('Built six pages in',OUT)
+print('Built',len(list(OUT.glob('*.html'))),'pages in',OUT)

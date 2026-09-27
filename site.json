@@ -106,6 +106,16 @@
           "position": "Tenure-track researcher, Luiss University, Rome",
           "award": "",
           "url": "https://sites.google.com/view/alessandrobondi/home"
+        },
+        {
+          "name": "Édouard Motte",
+          "dates": "Visiting PhD student, 2025",
+          "institution": "",
+          "supervision": "",
+          "partner": "",
+          "position": "",
+          "award": "",
+          "url": "https://scholar.google.com/citations?user=9zBR-xQAAAAJ&hl=en"
         }
       ]
     }
@@ -175,65 +185,7 @@
       "url": "https://www.crm.cat/"
     }
   ],
-  "selected_talks": [
-    {
-      "name": "Bloomberg Quant BBQ",
-      "date": "February 2026",
-      "place": "New York, USA",
-      "topic": "Keynote: Path-Signatures, Memory and Stationarity.",
-      "url": "https://go.bloomberg.com/attend/invite/2-24-26-bloomberg-quant-bbq-seminar-series-february/"
-    },
-    {
-      "name": "Actuarial and Financial Mathematics Conference",
-      "date": "February 2026",
-      "place": "Brussels, Belgium",
-      "topic": "Plenary: volatility dynamics and memory.",
-      "url": "https://afmathconf.ugent.be/index.php?page=programme"
-    },
-    {
-      "name": "Advances in Financial Mathematics",
-      "date": "January 2026",
-      "place": "Paris, France",
-      "topic": "Plenary: efficient simulation of affine Volterra processes, from Heston to Hawkes.",
-      "url": "https://fin-risks2026.sciencesconf.org/"
-    },
-    {
-      "name": "Vienna Congress on Mathematical Finance",
-      "date": "July 2025",
-      "place": "Vienna, Austria",
-      "topic": "Plenary: from the quintic model to signatures.",
-      "url": "https://fam.tuwien.ac.at/events/vcmf2025/"
-    },
-    {
-      "name": "Research in Options: RiO 2024",
-      "date": "December 2024",
-      "place": "Rio de Janeiro, Brazil",
-      "topic": "Minicourse on Volterra processes in quantitative finance.",
-      "url": "https://eventos.fgv.br/research-options-2024"
-    },
-    {
-      "name": "Stochastic Methods in Finance and Physics",
-      "date": "July 2023",
-      "place": "Crete, Greece",
-      "topic": "Minicourse on Volterra processes in finance.",
-      "url": "https://sites.google.com/view/smfp2023/speakers"
-    },
-    {
-      "name": "KAUST minicourse",
-      "date": "May 2023",
-      "place": "KAUST, Saudi Arabia",
-      "topic": "Non-Markovian models in finance, with Christian Bayer.",
-      "url": "https://www.kaust.edu.sa/events/snsl26/"
-    }
-  ],
   "courses": [
-    {
-      "level": "Master’s course",
-      "title": "Memory in Quantitative Finance: Volterra Processes and Path Signatures",
-      "institution": "M2 Probabilités et Finance · École Polytechnique & Sorbonne Université",
-      "description": "A course connecting stochastic models with memory and path-signature methods. Created in 2023 and taught annually.",
-      "url": "https://finance.math.upmc.fr/en/enseignements/2_mn_7_fractional_volterra/"
-    },
     {
       "level": "Master’s course",
       "title": "Stochastic Modelling and Derivatives",
@@ -250,22 +202,17 @@
     },
     {
       "level": "Master’s course",
+      "title": "Memory in Quantitative Finance: Volterra Processes and Path Signatures",
+      "institution": "M2 Probabilités et Finance · École Polytechnique & Sorbonne Université",
+      "description": "A course connecting stochastic models with memory and path-signature methods. Created in 2023 and taught annually.",
+      "url": "https://finance.math.upmc.fr/en/enseignements/2_mn_7_fractional_volterra/"
+    },
+    {
+      "level": "Master’s course",
       "title": "Data Challenge",
       "institution": "M2 Probabilités et Finance · École Polytechnique & Sorbonne Université",
       "description": "Learning from data through applied challenges.",
       "url": "https://challengedata.ens.fr/challenges/167"
-    },
-    {
-      "level": "2024–2025",
-      "title": "Deep Learning in Finance",
-      "institution": "MSc Data Science for Finance · École Polytechnique & HEC",
-      "description": "Applications of deep learning to problems in quantitative finance."
-    },
-    {
-      "level": "Professional education",
-      "title": "Stochastic Calculus, Control and Risk",
-      "institution": "École Polytechnique · BNP Paribas · UM6P",
-      "description": "Executive and professional courses in stochastic calculus and control, volatility modelling, credit risk, market risk and Monte Carlo methods."
     }
   ],
   "talk_archive": [
@@ -737,5 +684,28 @@
     }
   ],
   "arxiv_url": "https://arxiv.org/search/?query=Abi+Jaber&searchtype=author&abstracts=hide&order=-announced_date_first&size=200",
-  "linkedin_url": "https://fr.linkedin.com/in/eduardo-abi-jaber-bb3b8467"
+  "linkedin_url": "https://fr.linkedin.com/in/eduardo-abi-jaber-bb3b8467",
+  "minicourses": [
+    {
+      "name": "Research in Options: RiO 2024",
+      "date": "December 2024",
+      "place": "Rio de Janeiro, Brazil",
+      "topic": "Minicourse on Volterra processes in quantitative finance.",
+      "url": "https://eventos.fgv.br/research-options-2024"
+    },
+    {
+      "name": "Stochastic Methods in Finance and Physics",
+      "date": "July 2023",
+      "place": "Crete, Greece",
+      "topic": "Minicourse on Volterra processes in finance.",
+      "url": "https://sites.google.com/view/smfp2023/speakers"
+    },
+    {
+      "name": "KAUST minicourse",
+      "date": "May 2023",
+      "place": "KAUST, Saudi Arabia",
+      "topic": "Non-Markovian models in finance, with Christian Bayer.",
+      "url": "https://cemse.kaust.edu.sa/events/by-type/workshop/2023/05/21/stochastic-numerics-and-statistical-learning-theory-and"
+    }
+  ]
 }
