@@ -211,5 +211,8 @@ for group in CONFIG.get('talk_archive',[]):
     events=sorted((archive_event(item) for item in group['items']),key=event_sort_key,reverse=True)
     talks+=f'<section class="section agenda-section" id="{title.lower()}"><h2>{esc(title)}</h2>'+agenda(events)+'</section>'
 page('talks.html','Talks & minicourses','Conferences, seminars and minicourses by Eduardo Abi Jaber.',talks+'<div class="page-body"></div>')
+# Standalone preview: deliberately absent from the site navigation.
+from research_preview import render as render_research_preview
+render_research_preview(ROOT, OUT, PUBS, paper, page)
 (OUT/'.nojekyll').touch()
 print('Built',len(list(OUT.glob('*.html'))),'pages in',OUT)

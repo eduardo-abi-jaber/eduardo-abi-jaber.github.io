@@ -1,0 +1,148 @@
+[
+  {
+    "id": "volterra",
+    "name": "Volterra processes",
+    "question": "How can we describe a system that remembers?",
+    "intro": "In a model with memory, the past continues to shape what happens next. Volterra processes make this dependence explicit through a kernel that describes how past events influence the present.",
+    "contribution": "My work develops the probabilistic foundations of these processes, together with methods for approximation, simulation and control. The same mathematical structures lead to models for volatility, trading and energy markets.",
+    "connection": "From mathematical foundations to computation and decisions.",
+    "groups": [
+      {
+        "name": "Probabilistic foundations",
+        "papers": [
+          "https://arxiv.org/abs/2605.29073",
+          "https://arxiv.org/abs/2506.04911",
+          "https://arxiv.org/abs/2503.16985",
+          "https://arxiv.org/abs/2403.14251",
+          "https://arxiv.org/abs/2009.10972",
+          "https://hal.archives-ouvertes.fr/hal-02367200v3",
+          "https://arxiv.org/abs/1909.01166",
+          "https://arxiv.org/abs/1912.07445",
+          "https://arxiv.org/abs/1708.08796"
+        ]
+      },
+      {
+        "name": "Approximation, simulation & Markovian structure",
+        "papers": [
+          "https://arxiv.org/abs/2511.13554",
+          "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5233849",
+          "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5166174",
+          "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5068765",
+          "https://hal.archives-ouvertes.fr/hal-01716696",
+          "https://arxiv.org/abs/1801.10359"
+        ]
+      },
+      {
+        "name": "Optimal control & stochastic games",
+        "papers": [
+          "https://arxiv.org/abs/2609.26349",
+          "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5167824",
+          "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4470883",
+          "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4264823",
+          "https://hal.archives-ouvertes.fr/hal-03783062v1",
+          "https://arxiv.org/abs/1911.01903",
+          "https://arxiv.org/abs/1911.01900"
+        ]
+      },
+      {
+        "name": "Finance & energy markets",
+        "papers": [
+          "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5164431",
+          "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5094585",
+          "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4960492",
+          "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4759758",
+          "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4292544",
+          "https://hal.archives-ouvertes.fr/hal-02877569/?",
+          "https://hal.archives-ouvertes.fr/hal-01890751"
+        ]
+      }
+    ],
+    "featured": [
+      "https://arxiv.org/abs/1708.08796",
+      "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5233849",
+      "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5094585"
+    ]
+  },
+  {
+    "id": "signatures",
+    "name": "Path signatures",
+    "question": "How can we turn a history into something we can work with?",
+    "intro": "A trajectory contains more information than its final value. Its signature is a structured collection of iterated integrals that describes how the path unfolds, providing a language for models that depend on an entire history.",
+    "contribution": "I study the probabilistic structure of signatures and use them to build path-dependent processes, solve control problems, and develop methods for pricing, hedging and learning. Fading-memory signatures bring the idea of forgetting into this representation.",
+    "connection": "From a path to a representation, then to a model or a decision.",
+    "groups": [
+      {
+        "name": "Theoretical foundations",
+        "papers": [
+          "https://arxiv.org/abs/2607.03986",
+          "https://arxiv.org/abs/2606.29622",
+          "https://arxiv.org/abs/2604.22528",
+          "https://arxiv.org/abs/2503.17103",
+          "https://arxiv.org/abs/2407.04956"
+        ]
+      },
+      {
+        "name": "Finance & learning",
+        "papers": [
+          "https://arxiv.org/abs/2511.23295",
+          "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5377750",
+          "https://arxiv.org/abs/2507.03700",
+          "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4714535"
+        ]
+      }
+    ],
+    "featured": [
+      "https://arxiv.org/abs/2407.04956",
+      "https://arxiv.org/abs/2507.03700",
+      "https://arxiv.org/abs/2607.03986"
+    ]
+  },
+  {
+    "id": "volatility",
+    "name": "Volatility & risk",
+    "question": "What makes a volatility model useful in practice?",
+    "intro": "A model must do more than fit a single snapshot of option prices. Its dynamics, its treatment of risk and the cost of using it all matter. These requirements connect questions from probability with the everyday work of pricing and hedging.",
+    "contribution": "My research examines rough, path-dependent and Markovian volatility models, including the joint modelling of SPX and VIX. I develop tractable models and simulation methods, and investigate what their dynamics imply for financial applications.",
+    "connection": "From market observations to tractable models and reliable computation.",
+    "groups": [
+      {
+        "name": "Models, calibration & simulation",
+        "papers": [
+          "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5183298",
+          "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5057352",
+          "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4816314",
+          "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4684016",
+          "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4387574",
+          "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4308677"
+        ]
+      }
+    ],
+    "featured": [
+      "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4308677",
+      "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4684016",
+      "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5057352"
+    ]
+  },
+  {
+    "id": "invariance",
+    "name": "Stochastic invariance",
+    "question": "When does a random system stay where it belongs?",
+    "intro": "Many stochastic models must respect constraints: a variance should remain nonnegative, for example. Invariance asks when a process that starts in an admissible set stays there as it evolves.",
+    "contribution": "My work studies conditions for stochastic invariance beyond Lipschitz coefficients, for diffusions and jump-diffusions, and in infinite-dimensional settings. These questions provide foundations for constructing models that respect their constraints.",
+    "connection": "Understanding which dynamics preserve the constraints of a model.",
+    "groups": [
+      {
+        "name": "Viability & invariance",
+        "papers": [
+          "https://arxiv.org/abs/2602.18902",
+          "https://arxiv.org/abs/1612.07647v2",
+          "http://arxiv.org/abs/1607.08717"
+        ]
+      }
+    ],
+    "featured": [
+      "http://arxiv.org/abs/1607.08717",
+      "https://arxiv.org/abs/2602.18902"
+    ]
+  }
+]
