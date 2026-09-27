@@ -736,6 +736,6 @@
       ]
     }
   ],
-  "arxiv_url": "https://arxiv.org/search/?query=Abi+Jaber%2C+Eduardo&searchtype=author",
+  "arxiv_url": "https://arxiv.org/search/?query=Abi+Jaber&searchtype=author&abstracts=hide&order=-announced_date_first&size=200",
   "linkedin_url": "https://fr.linkedin.com/in/eduardo-abi-jaber-bb3b8467"
 }
