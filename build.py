@@ -24,15 +24,22 @@ def ext(url,label,cls=''):
     return f'<a href="{esc(url,quote=True)}" class="{cls}"{attrs}>{esc(label)}</a>'
 def intro(kicker,title,description):
     return f'<div class="page-intro"><p class="eyebrow">{kicker}</p><h1>{title}</h1><p class="lead">{description}</p></div>'
-def paper(p):
+def paper(p,number=None):
     dates=re.findall(r'\b20\d{2}\b',p['details'])
     year=dates[0] if dates else 'Accepted'
     detail=re.sub(r'\s*\(.*?Jupyter notebook.*?\)', '',p['details'])
     detail=detail.replace('🌟','').replace(' ( )','').strip()
-    actions=ext(p['url'],'Paper')
+    detail_html=esc(detail)
+    journals=('Bernoulli','Finance and Stochastics','Finance & Stochastics','Mathematical Finance','Quantitative Finance','Stochastic Systems','Stochastic Processes and their Applications','Annals of Applied Probability','The Annals of Applied Probability','Electronic Journal of Probability','Electronic Communications in Probability','SIAM Journal on Financial Mathematics','SIAM Journal on Control and Optimization','Statistics & Probability Letters','Risk Magazine','Risk Magazine (Cutting Edge Section)')
+    for a in p['links'][1:]:
+        if a['label'] in journals and '/editorial-board' not in a['url']:
+            detail_html=detail_html.replace(esc(a['label']),ext(a['url'],a['label'],'journal-link'),1)
+    marker=f'[{number}]' if number is not None else esc(year)
+    actions='' 
     for a in p['links'][1:]:
         if 'notebook' in a['label'].lower():actions+=ext(a['url'],'Code / notebook')
-    return f'<article class="paper"><div class="paper-year">{esc(year)}</div><div><h3>{ext(p["url"],p["title"])}</h3><p>{esc(detail)}</p><div class="paper-actions">{actions}</div></div></article>'
+    actions_html=f'<div class="paper-actions">{actions}</div>' if actions else ''
+    return f'<article class="paper"><div class="paper-year">{marker}</div><div><h3>{ext(p["url"],p["title"])}</h3><p>{detail_html}</p>{actions_html}</div></article>'
 def page(filename,title,description,content):
     nav=''
     for file,label in [('research.html','Research'),('publications.html','Publications'),('people.html','People'),('teaching.html','Teaching'),('talks.html','Talks')]:
@@ -65,12 +72,12 @@ if portrait:
     if not (ROOT/portrait).is_file():raise FileNotFoundError(portrait)
     photo=f'<img src="{esc(portrait)}" alt="Portrait of Eduardo Abi Jaber" width="600" height="750">'
 else:photo='<span class="portrait-monogram" aria-hidden="true">EAJ</span><span class="portrait-caption">Eduardo Abi Jaber</span>'
-hero=f'''<section class="hero"><div><p class="eyebrow">École Polytechnique · Applied Mathematics</p><h1>Mathematics<br>with <em>memory.</em></h1><p class="intro">I am <strong>Eduardo Abi Jaber</strong>, Professor of Applied Mathematics at École Polytechnique, in the Mathematical Finance group at CMAP.</p><p class="description">My research develops the mathematics of stochastic systems with memory, from probabilistic foundations to models and methods for finance, energy and learning.</p><div class="links profile-links">{profile_links}</div></div><figure class="portrait-wrap"><div class="portrait">{photo}</div><figcaption class="portrait-note">École Polytechnique, Palaiseau</figcaption></figure></section>
+hero=f'''<section class="hero"><div><p class="eyebrow">École Polytechnique · Applied Mathematics</p><h1>Mathematics<br>with <em>memory.</em></h1><p class="intro">I am <strong>Eduardo Abi Jaber</strong>, Professor of Applied Mathematics at École Polytechnique, in the Mathematical Finance group at CMAP.</p><p class="description">My research develops the mathematics of stochastic systems with memory, from probabilistic foundations to models and methods for finance, energy and learning.</p><div class="links profile-links">{profile_links}</div></div><figure class="portrait-wrap"><div class="portrait">{photo}</div></figure></section>
 <div class="research-band"><div>Volterra processes</div><div>Path signatures &amp; learning</div><div>Mathematical Finance</div><div>Volatility Modeling</div></div>'''
 latest='<section class="section"><div class="section-top"><div><p class="eyebrow">Recent work</p><h2>New papers</h2></div><a class="text-link" href="publications.html">All publications</a></div>'+''.join(paper(p) for p in PUBS[:3])+'</section>'
 events=CONFIG['upcoming']
 def event(e):return f'<article class="event"><div class="meta">{esc(e["date"])} · {esc(e["place"])}</div><h3>{ext(e["url"],e["name"])}</h3><p>{esc(e.get("topic",""))}</p></article>'
-next_events='<section class="section split"><div><h2>Upcoming talks</h2><p class="lead">Conferences, seminars and exchanges with researchers and practitioners.</p><a class="text-link" href="talks.html">Talks &amp; minicourses</a></div><div class="events">'+''.join(event(e) for e in events[:3])+'</div></section>'
+next_events='<section class="section split"><div><h2>Upcoming talks</h2><a class="text-link" href="talks.html">Talks &amp; minicourses</a></div><div class="events">'+''.join(event(e) for e in events[:3])+'</div></section>'
 page('index.html','Home','Eduardo Abi Jaber, Professor of Applied Mathematics at École Polytechnique. Stochastic systems with memory, Volterra processes, control and path signatures.',hero+latest+next_events)
 
 research=intro('Research','Modelling, controlling<br>and learning memory.','Many stochastic systems depend on the path that brought them to their present state. I develop mathematical foundations and computational methods for this dependence on history.')
@@ -80,8 +87,8 @@ for number,title,p1,p2,work in topics:
 research+='''<section class="partners"><h3>Research in dialogue with industry</h3><p>Problems from finance and energy motivate new mathematical questions and guide the development of practical methods. Collaborations include ENGIE Global Markets, AXA Investment Managers, BNP Paribas, CACIB and GEFIP.</p><p>Examples include joint historical and implied calibration in energy markets with ENGIE, and joint SPX–VIX volatility modelling with AXA Investment Managers.</p></section>'''
 research+='<section class="section"><p class="eyebrow">Academic service &amp; recognition</p><div class="service"><p><strong>Associate editor</strong> of Mathematical Finance, Finance and Stochastics, and the International Journal of Theoretical and Applied Finance, since 2026.</p><p><strong>AMIES PhD Award (2019)</strong> for doctoral research in collaboration with industry; <strong>Bachelier Finance Society Junior Scholar Award (2018)</strong>.</p><p>'+ext(link('Volterra Processes in Finance'),'Habilitation: Volterra Processes in Finance (2024)','text-link')+'</p><p>'+ext(link('Stochastic invariance and stochastic Volterra equations'),'PhD thesis (2018)','text-link')+'</p></div></section>'
 page('research.html','Research','Research on Volterra processes, stochastic control and path signatures, with applications in finance and energy.',research)
-pubintro=intro('Research output','Publications','Papers and preprints on stochastic systems with memory, mathematical finance, control and learning. Links lead to manuscripts, journal articles and reproducible notebooks.')
-page('publications.html','Publications','Research papers and preprints by Eduardo Abi Jaber, with manuscript and code links.',pubintro+'<div class="page-body">'+''.join(paper(p) for p in PUBS)+'</div>')
+pubintro='<div class="page-intro"><h1>Publications</h1></div>'
+page('publications.html','Publications','Research papers and preprints by Eduardo Abi Jaber, with manuscript and code links.',pubintro+'<div class="page-body">'+''.join(paper(p,len(PUBS)-i) for i,p in enumerate(PUBS))+'</div>')
 
 people=intro('Research group','People','Doctoral and postdoctoral research at the intersection of probability, mathematical finance and learning.')
 for group in CONFIG['people']:

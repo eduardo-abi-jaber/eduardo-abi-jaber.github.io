@@ -18,3 +18,5 @@
 .research-band div+div{border-left:1px solid var(--line)}
 @media(max-width:1050px){.research-band div{padding:0 14px;font-size:.9rem}}
 @media(max-width:760px){.research-band{display:grid;grid-template-columns:1fr 1fr;gap:16px 0}.research-band div{padding:0 14px;text-align:left}.research-band div:nth-child(odd){padding-left:0;border-left:0}.profile-links{gap:12px 20px}}
+
+.journal-link{text-decoration:underline;text-decoration-color:#b9c5db;text-underline-offset:3px}.paper-year{font-variant-numeric:tabular-nums}
