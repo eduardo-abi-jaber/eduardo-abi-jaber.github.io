@@ -27,7 +27,7 @@ def intro(kicker,title,description):
 def paper(p,number=None):
     dates=re.findall(r'\b20\d{2}\b',p['details'])
     year=dates[0] if dates else 'Accepted'
-    detail=re.sub(r'\s*\(.*?Jupyter notebook.*?\)', '',p['details'])
+    detail=re.sub(r'\s*\(Jupyter notebook\)', '',p['details'])
     detail=detail.replace('🌟','').replace(' ( )','').strip()
     detail_html=esc(detail)
     journals=('Bernoulli','Finance and Stochastics','Finance & Stochastics','Mathematical Finance','Quantitative Finance','Stochastic Systems','Stochastic Processes and their Applications','Annals of Applied Probability','The Annals of Applied Probability','Electronic Journal of Probability','Electronic Communications in Probability','SIAM Journal on Financial Mathematics','SIAM Journal on Control and Optimization','Statistics & Probability Letters','Risk Magazine','Risk Magazine (Cutting Edge Section)')
