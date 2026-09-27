@@ -137,7 +137,7 @@ def archive_event(item):
         name+=', '+edition
     topic=item['text'][match.end():].strip(' ,. ')
     distinctions=list(dict.fromkeys(m.title() for m in re.findall(r'(?i)\b(invited|plenary|keynote)\b',topic)))
-    topic=re.sub(r'(?i)\s*\((?:invited|plenary|keynote)\)', '', topic).strip()
+    topic=re.sub(r'(?i)\s*\(\s*(?:invited|plenary|keynote)\s*\)', '', topic).strip()
     return dict(name=name,place=place,date=date,topic=topic,url=item.get('url',''),distinctions=distinctions)
 
 def event_sort_key(e):
