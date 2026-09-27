@@ -72,7 +72,21 @@ if portrait:
     if not (ROOT/portrait).is_file():raise FileNotFoundError(portrait)
     photo=f'<img src="{esc(portrait)}" alt="Portrait of Eduardo Abi Jaber" width="600" height="750">'
 else:photo='<span class="portrait-monogram" aria-hidden="true">EAJ</span><span class="portrait-caption">Eduardo Abi Jaber</span>'
-hero=f'''<section class="hero"><div><p class="eyebrow">École Polytechnique · Applied Mathematics</p><h1>Mathematics<br>with <em>memory.</em></h1><p class="intro">I am <strong>Eduardo Abi Jaber</strong>, Professor of Applied Mathematics at École Polytechnique, in the Mathematical Finance group at CMAP.</p><p class="description">My research develops the mathematics of stochastic systems with memory, from probabilistic foundations to models and methods for finance, energy and learning.</p><div class="links profile-links">{profile_links}</div></div><figure class="portrait-wrap"><div class="portrait">{photo}</div></figure></section>
+hero=f'''<section class="hero"><div><p class="eyebrow">École Polytechnique · Applied Mathematics</p><h1>Mathematics<br>with <em>memory.</em></h1><p class="intro">I am <strong>Eduardo Abi Jaber</strong>, Professor of Applied Mathematics at École Polytechnique, in the Mathematical Finance group at CMAP.</p><p class="description">My research develops the mathematics of stochastic systems with memory, from probabilistic foundations to models and methods for finance, energy and learning.</p><p class="description">
+I enjoy building a
+<a class="text-link" href="people.html">research group</a>
+and developing ideas together with doctoral students,
+postdoctoral researchers and collaborators.
+</p>
+<p class="description">
+I defended my
+<a class="text-link" href="https://hal.science/tel-04493022"
+target="_blank" rel="noopener noreferrer">Habilitation à Diriger des Recherches</a>
+in 2024 and my
+<a class="text-link" href="https://tel.archives-ouvertes.fr/tel-01956320/"
+target="_blank" rel="noopener noreferrer">PhD thesis</a>
+in 2018.
+</p><div class="links profile-links">{profile_links}</div></div><figure class="portrait-wrap"><div class="portrait">{photo}</div></figure></section>
 <div class="research-band"><div>Volterra processes</div><div>Path signatures &amp; learning</div><div>Mathematical Finance</div><div>Volatility Modeling</div></div>'''
 latest='<section class="section"><div class="section-top"><div><p class="eyebrow">Recent work</p><h2>New papers</h2></div><a class="text-link" href="publications.html">All publications</a></div>'+''.join(paper(p) for p in PUBS[:3])+'</section>'
 events=CONFIG['upcoming']
