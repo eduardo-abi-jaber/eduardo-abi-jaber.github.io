@@ -1,6 +1,6 @@
 """Build the website with Python 3 (standard library only)."""
 from pathlib import Path
-import json, re, shutil
+import json, re, shutil, hashlib
 from html import escape as esc
 
 ROOT=Path(__file__).parent
@@ -10,6 +10,7 @@ shutil.copytree(ROOT/'assets',OUT/'assets',dirs_exist_ok=True)
 PUBS=json.loads((ROOT/'publications.json').read_text())
 LINKS=json.loads((ROOT/'source-links.json').read_text())
 CONFIG=json.loads((ROOT/'site.json').read_text())
+STYLE_VERSION=hashlib.sha256((ROOT/'assets/style.css').read_bytes()).hexdigest()[:12]
 EMAIL='eduardo.abi-jaber@polytechnique.edu'
 SCHOLAR='https://scholar.google.com/citations?user=U35GhtAAAAAJ'
 def link(label):
@@ -40,7 +41,7 @@ def page(filename,title,description,content):
     canonical=CONFIG.get('site_url','').rstrip('/')
     canonical_tag=f'<link rel="canonical" href="{esc(canonical)}/{filename if filename!="index.html" else ""}">' if canonical else ''
     text=f'''<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} | Eduardo Abi Jaber</title><meta name="description" content="{esc(description,quote=True)}">{canonical_tag}<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css"><script src="assets/site.js" defer></script></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} | Eduardo Abi Jaber</title><meta name="description" content="{esc(description,quote=True)}">{canonical_tag}<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css?v={STYLE_VERSION}"><script src="assets/site.js" defer></script></head>
 <body><a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="wrap header-inner"><a class="brand" href="index.html">Eduardo Abi Jaber<span>.</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="navigation" type="button">Menu</button><nav id="navigation" aria-label="Main navigation">{nav}</nav></div></header>
 <main id="main" class="wrap">{content}</main><footer class="wrap footer"><div class="footer-top"><div><a class="footer-name" href="index.html">Eduardo Abi Jaber</a><p>Professor of Applied Mathematics<br>École Polytechnique · CMAP</p></div><div class="footer-links">{ext('mailto:'+EMAIL,'Email')}{ext(SCHOLAR,'Google Scholar')}</div></div><div class="footer-bottom">© {CONFIG['copyright_year']} Eduardo Abi Jaber</div></footer></body></html>'''
     (OUT/filename).write_text(text)
