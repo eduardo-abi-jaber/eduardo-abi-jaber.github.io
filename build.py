@@ -42,7 +42,7 @@ def paper(p,number=None):
     return f'<article class="paper"><div class="paper-year">{marker}</div><div><h3>{ext(p["url"],p["title"])}</h3><p>{detail_html}</p>{actions_html}</div></article>'
 def page(filename,title,description,content):
     nav=''
-    for file,label in [('research.html','Research'),('publications.html','Publications'),('people.html','People'),('teaching.html','Teaching'),('talks.html','Talks')]:
+    for file,label in [('publications.html','Publications'),('people.html','People'),('teaching.html','Teaching'),('talks.html','Talks')]:
         current=' aria-current="page"' if file==filename else ''
         nav+=f'<a href="{file}"{current}>{label}</a>'
     canonical=CONFIG.get('site_url','').rstrip('/')
@@ -113,7 +113,7 @@ page('index.html','Home','Eduardo Abi Jaber, Professor of Applied Mathematics at
 # research+='''<section class="partners"><h3>Research in dialogue with industry</h3><p>Problems from finance and energy motivate new mathematical questions and guide the development of practical methods. Collaborations include ENGIE Global Markets, AXA Investment Managers, BNP Paribas, CACIB and GEFIP.</p><p>Examples include joint historical and implied calibration in energy markets with ENGIE, and joint SPX–VIX volatility modelling with AXA Investment Managers.</p></section>'''
 # research+='<section class="section"><p class="eyebrow">Academic service &amp; recognition</p><div class="service"><p><strong>Associate editor</strong> of Mathematical Finance, Finance and Stochastics, and the International Journal of Theoretical and Applied Finance, since 2026.</p><p><strong>AMIES PhD Award (2019)</strong> for doctoral research in collaboration with industry; <strong>Bachelier Finance Society Junior Scholar Award (2018)</strong>.</p><p>'+ext(link('Volterra Processes in Finance'),'Habilitation: Volterra Processes in Finance (2024)','text-link')+'</p><p>'+ext(link('Stochastic invariance and stochastic Volterra equations'),'PhD thesis (2018)','text-link')+'</p></div></section>'
 # page('research.html','Research','Research on Volterra processes, stochastic control and path signatures, with applications in finance and energy.',research)
-# pubintro='<div class="page-intro"><h1>Publications</h1></div>'
+pubintro='<div class="page-intro"><h1>Publications</h1></div>'
 page('publications.html','Publications','Research papers and preprints by Eduardo Abi Jaber, with manuscript and code links.',pubintro+'<div class="page-body">'+''.join(paper(p,len(PUBS)-i) for i,p in enumerate(PUBS))+'</div>')
 
 people=intro('Research group','People','Doctoral and postdoctoral research at the intersection of probability, mathematical finance and learning.')
