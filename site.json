@@ -5,7 +5,7 @@
   "portrait": "assets/portrait.jpg",
   "people": [
     {
-      "title": "Doctoral researchers",
+      "title": "PhD Students",
       "members": [
         {
           "name": "Ronan Pécheul",
@@ -50,7 +50,7 @@
       ]
     },
     {
-      "title": "Postdoctoral researchers",
+      "title": "Postdocs",
       "members": [
         {
           "name": "Francesca Primavera",
