@@ -7,8 +7,9 @@ def render(root, out, publications, paper, page):
     themes=json.loads((root/'research-preview.json').read_text())
     lookup={p['url']:(p,len(publications)-i) for i,p in enumerate(publications)}
     all_urls=[u for t in themes for g in t['groups'] for u in g['papers']]
-    assert len(all_urls)==len(set(all_urls))==len(publications), 'Each publication must appear in exactly one theme'
-    assert set(all_urls)==set(lookup), 'Preview grouping must match the publication list'
+    assert len(all_urls)==len(set(all_urls)), 'A publication must not appear in multiple themes'
+    assert set(all_urls)<=set(lookup), 'Preview references a publication missing from the main list'
+    # New publications can be added to the main site before this preview is regrouped.
     cards=''
     for n,t in enumerate(themes,1):
         count=sum(len(g['papers']) for g in t['groups'])
