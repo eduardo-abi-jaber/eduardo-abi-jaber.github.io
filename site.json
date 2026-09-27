@@ -2,7 +2,7 @@
   "github_username": "eduardo-abi-jaber",
   "site_url": "https://eduardo-abi-jaber.github.io",
   "copyright_year": 2026,
-  "portrait": "",
+  "portrait": "assets/portrait.jpg",
   "people": [
     {
       "title": "Doctoral researchers",
@@ -735,5 +735,7 @@
         }
       ]
     }
-  ]
+  ],
+  "arxiv_url": "https://arxiv.org/search/?query=Jaber%2C+E+A&searchtype=author",
+  "linkedin_url": "https://fr.linkedin.com/in/eduardo-abi-jaber-bb3b8467"
 }

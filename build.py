@@ -19,7 +19,8 @@ def link(label):
         if label.lower() in a['label'].lower():return a['url']
     raise ValueError('Missing source link: '+label)
 def ext(url,label,cls=''):
-    return f'<a href="{esc(url,quote=True)}" class="{cls}">{esc(label)}</a>'
+    attrs=' target="_blank" rel="noopener noreferrer"' if url.startswith(('https://','http://','//')) else ''
+    return f'<a href="{esc(url,quote=True)}" class="{cls}"{attrs}>{esc(label)}</a>'
 def intro(kicker,title,description):
     return f'<div class="page-intro"><p class="eyebrow">{kicker}</p><h1>{title}</h1><p class="lead">{description}</p></div>'
 def paper(p):
@@ -36,26 +37,39 @@ def page(filename,title,description,content):
     for file,label in [('research.html','Research'),('publications.html','Publications'),('people.html','People'),('teaching.html','Teaching'),('talks.html','Talks')]:
         current=' aria-current="page"' if file==filename else ''
         nav+=f'<a href="{file}"{current}>{label}</a>'
-    github='https://github.com/'+CONFIG['github_username']
     canonical=CONFIG.get('site_url','').rstrip('/')
     canonical_tag=f'<link rel="canonical" href="{esc(canonical)}/{filename if filename!="index.html" else ""}">' if canonical else ''
     text=f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} | Eduardo Abi Jaber</title><meta name="description" content="{esc(description,quote=True)}">{canonical_tag}<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css"><script src="assets/site.js" defer></script></head>
 <body><a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="wrap header-inner"><a class="brand" href="index.html">Eduardo Abi Jaber<span>.</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="navigation" type="button">Menu</button><nav id="navigation" aria-label="Main navigation">{nav}</nav></div></header>
-<main id="main" class="wrap">{content}</main><footer class="wrap footer"><div class="footer-top"><div><a class="footer-name" href="index.html">Eduardo Abi Jaber</a><p>Professor of Applied Mathematics<br>École Polytechnique · CMAP</p></div><div class="footer-links">{ext('mailto:'+EMAIL,'Email')}{ext(SCHOLAR,'Google Scholar')}{ext(github,'GitHub')}</div></div><div class="footer-bottom">© {CONFIG['copyright_year']} Eduardo Abi Jaber</div></footer></body></html>'''
+<main id="main" class="wrap">{content}</main><footer class="wrap footer"><div class="footer-top"><div><a class="footer-name" href="index.html">Eduardo Abi Jaber</a><p>Professor of Applied Mathematics<br>École Polytechnique · CMAP</p></div><div class="footer-links">{ext('mailto:'+EMAIL,'Email')}{ext(SCHOLAR,'Google Scholar')}</div></div><div class="footer-bottom">© {CONFIG['copyright_year']} Eduardo Abi Jaber</div></footer></body></html>'''
     (OUT/filename).write_text(text)
+
+# Small monochrome symbols retain visible labels for clarity and accessibility.
+ICONS={
+    'arXiv':'<path d="M6 3l12 18M18 3L6 21" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 8l4-5 3 5M13 16l3 5 4-5" fill="none" stroke="currentColor" stroke-width="1.4"/>',
+    'Google Scholar':'<path d="M2 9l10-7 10 7-10 7z" fill="currentColor"/><path d="M6 13v6c4 3 8 3 12 0v-6" fill="none" stroke="currentColor" stroke-width="1.8"/>',
+    'LinkedIn':'<rect x="2" y="2" width="20" height="20" rx="2" fill="currentColor"/><path d="M7 10v8M11 18v-8M11 14c0-5 6-5 6 0v4" fill="none" stroke="white" stroke-width="2"/><circle cx="7" cy="6.5" r="1.2" fill="white"/>',
+    'Email':'<rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 6l9 7 9-7" fill="none" stroke="currentColor" stroke-width="1.6"/>'
+}
+def profile_link(label,url):
+    icon=f'<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">{ICONS[label]}</svg>'
+    return ext(url,label,'profile-link').replace('>'+esc(label)+'</a>','>'+icon+'<span>'+esc(label)+'</span></a>')
+profile_links=''.join(profile_link(label,url) for label,url in [
+    ('arXiv',CONFIG['arxiv_url']),('Google Scholar',SCHOLAR),
+    ('LinkedIn',CONFIG['linkedin_url']),('Email','mailto:'+EMAIL)])
 
 portrait=CONFIG.get('portrait','')
 if portrait:
     if not (ROOT/portrait).is_file():raise FileNotFoundError(portrait)
     photo=f'<img src="{esc(portrait)}" alt="Portrait of Eduardo Abi Jaber" width="600" height="750">'
 else:photo='<span class="portrait-monogram" aria-hidden="true">EAJ</span><span class="portrait-caption">Eduardo Abi Jaber</span>'
-hero=f'''<section class="hero"><div><p class="eyebrow">École Polytechnique · Applied Mathematics</p><h1>Mathematics<br>with <em>memory.</em></h1><p class="intro">I am <strong>Eduardo Abi Jaber</strong>, Professor of Applied Mathematics at École Polytechnique, in the Mathematical Finance group at CMAP.</p><p class="description">My research develops the mathematics of stochastic systems with memory—from probabilistic foundations to models and methods for finance, energy and learning.</p><div class="links">{ext('research.html','Explore my research','text-link')}{ext('mailto:'+EMAIL,'Get in touch','text-link')}</div></div><figure class="portrait-wrap"><div class="portrait">{photo}</div><figcaption class="portrait-note">École Polytechnique, Palaiseau</figcaption></figure></section>
-<div class="research-band"><div><span>01</span> Volterra processes</div><div><span>02</span> Stochastic control</div><div><span>03</span> Path signatures &amp; learning</div></div>'''
+hero=f'''<section class="hero"><div><p class="eyebrow">École Polytechnique · Applied Mathematics</p><h1>Mathematics<br>with <em>memory.</em></h1><p class="intro">I am <strong>Eduardo Abi Jaber</strong>, Professor of Applied Mathematics at École Polytechnique, in the Mathematical Finance group at CMAP.</p><p class="description">My research develops the mathematics of stochastic systems with memory, from probabilistic foundations to models and methods for finance, energy and learning.</p><div class="links profile-links">{profile_links}</div></div><figure class="portrait-wrap"><div class="portrait">{photo}</div><figcaption class="portrait-note">École Polytechnique, Palaiseau</figcaption></figure></section>
+<div class="research-band"><div>Volterra processes</div><div>Path signatures &amp; learning</div><div>Mathematical Finance</div><div>Volatility Modeling</div></div>'''
 latest='<section class="section"><div class="section-top"><div><p class="eyebrow">Recent work</p><h2>New papers</h2></div><a class="text-link" href="publications.html">All publications</a></div>'+''.join(paper(p) for p in PUBS[:3])+'</section>'
 events=CONFIG['upcoming']
 def event(e):return f'<article class="event"><div class="meta">{esc(e["date"])} · {esc(e["place"])}</div><h3>{ext(e["url"],e["name"])}</h3><p>{esc(e.get("topic",""))}</p></article>'
-next_events='<section class="section split"><div><p class="eyebrow">In conversation</p><h2>Upcoming talks</h2><p class="lead">Conferences, seminars and exchanges with researchers and practitioners.</p><a class="text-link" href="talks.html">Talks &amp; minicourses</a></div><div class="events">'+''.join(event(e) for e in events[:3])+'</div></section>'
+next_events='<section class="section split"><div><h2>Upcoming talks</h2><p class="lead">Conferences, seminars and exchanges with researchers and practitioners.</p><a class="text-link" href="talks.html">Talks &amp; minicourses</a></div><div class="events">'+''.join(event(e) for e in events[:3])+'</div></section>'
 page('index.html','Home','Eduardo Abi Jaber, Professor of Applied Mathematics at École Polytechnique. Stochastic systems with memory, Volterra processes, control and path signatures.',hero+latest+next_events)
 
 research=intro('Research','Modelling, controlling<br>and learning memory.','Many stochastic systems depend on the path that brought them to their present state. I develop mathematical foundations and computational methods for this dependence on history.')
