@@ -98,7 +98,7 @@ if portrait:
     if not (ROOT/portrait).is_file():raise FileNotFoundError(portrait)
     photo=f'<img src="{esc(portrait)}" alt="Portrait of Eduardo Abi Jaber" width="600" height="750">'
 else:photo='<span class="portrait-monogram" aria-hidden="true">EAJ</span><span class="portrait-caption">Eduardo Abi Jaber</span>'
-hero=f'''<section class="hero"><div><p class="eyebrow">École Polytechnique · Applied Mathematics</p><h1>Mathematics<br>with <em>memory.</em></h1><p class="intro">I am <strong>Eduardo Abi Jaber</strong>, Professor of Applied Mathematics at École Polytechnique, in the Mathematical Finance group at CMAP.</p><p class="description">My research develops the mathematics of stochastic systems with memory, from probabilistic foundations to models and methods for finance, energy and learning.</p><p class="description">
+hero=f'''<section class="hero"><div><p class="eyebrow">École Polytechnique · Applied Mathematics</p><h1>Mathematics<br>with <em>memory.</em></h1><p class="intro">I am <strong>Eduardo Abi Jaber</strong>, Professor of Applied Mathematics at École Polytechnique, in the Mathematical Finance group at CMAP.</p><p class="description">My research develops the mathematics of stochastic systems with memory, from probabilistic foundations to models and methods for quantitative finance, energy markets and machine learning.</p><p class="description">
 I enjoy building a
 <a class="text-link" href="people.html">research group</a>
 and developing ideas together with doctoral students,
