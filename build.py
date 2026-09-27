@@ -88,6 +88,18 @@ target="_blank" rel="noopener noreferrer">PhD thesis</a>
 in 2018.
 </p><div class="links profile-links">{profile_links}</div></div><figure class="portrait-wrap"><div class="portrait">{photo}</div></figure></section>
 <div class="research-band"><div>Volterra processes</div><div>Path signatures &amp; learning</div><div>Mathematical Finance</div><div>Volatility Modeling</div></div>'''
+academic_info=f'''
+<section class="section">
+  <h2>Teaching</h2>
+  <p class="lead">Current courses and student projects.</p>
+  <ul>
+    <li>{ext(
+      'https://finance.math.upmc.fr/en/enseignements/1_6_proc_stochastiques/',
+      'Stochastic modelling and derivatives'
+    )} — M2 Probabilité et Finance, École Polytechnique–Sorbonne Université.</li>
+  </ul>
+</section>
+'''
 latest='<section class="section"><div class="section-top"><div><p class="eyebrow">Recent work</p><h2>New papers</h2></div><a class="text-link" href="publications.html">All publications</a></div>'+''.join(paper(p) for p in PUBS[:3])+'</section>'
 events=CONFIG['upcoming']
 def event(e):return f'<article class="event"><div class="meta">{esc(e["date"])} · {esc(e["place"])}</div><h3>{ext(e["url"],e["name"])}</h3><p>{esc(e.get("topic",""))}</p></article>'
