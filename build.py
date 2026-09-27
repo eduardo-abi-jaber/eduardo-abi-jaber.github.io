@@ -50,7 +50,7 @@ def linked_text(text,extra=None):
 
 def intro(kicker,title,description):
     return f'<div class="page-intro"><p class="eyebrow">{kicker}</p><h1>{title}</h1><p class="lead">{description}</p></div>'
-def paper(p,number=None):
+def paper(p,number=None,show_year=True):
     dates=re.findall(r'\b20\d{2}\b',p['details'])
     year=dates[0] if dates else 'Accepted'
     detail=re.sub(r'\s*\(Jupyter notebook\)', '',p['details'])
@@ -65,7 +65,8 @@ def paper(p,number=None):
     for a in p['links'][1:]:
         if 'notebook' in a['label'].lower():actions+=ext(a['url'],'Code / notebook')
     actions_html=f'<div class="paper-actions">{actions}</div>' if actions else ''
-    return f'<article class="paper"><div class="paper-year">{marker}</div><div><h3>{ext(p["url"],p["title"])}</h3><p>{detail_html}</p>{actions_html}</div></article>'
+    marker_html=f'<div class="paper-year">{marker}</div>' if show_year or number is not None else ''
+    return f'<article class="paper">{marker_html}<div><h3>{ext(p["url"],p["title"])}</h3><p>{detail_html}</p>{actions_html}</div></article>'
 def page(filename,title,description,content):
     nav=''
     for file,label in [('publications.html','Publications'),('people.html','Research Group'),('teaching.html','Teaching'),('talks.html','Talks')]:
@@ -118,21 +119,52 @@ academic_info='<section class="section academic-overview"><div><h2>Current teach
 for course in CONFIG['courses']:
     academic_info+=f'<li>{ext(course["url"],course["title"],"inline-link")}<span>{esc(course["institution"])}</span></li>'
 academic_info+='</ul></div><div class="service-awards"><h2>Academic service</h2><p>I serve as Associate Editor for '+ext('https://onlinelibrary.wiley.com/journal/14679965','Mathematical Finance','inline-link')+', '+ext('https://link.springer.com/journal/780/editorial-board','Finance and Stochastics','inline-link')+' and '+ext('https://www.worldscientific.com/page/ijtaf/editorial-board','International Journal of Theoretical and Applied Finance','inline-link')+', since 2026.</p><h2>Awards</h2><ul><li>'+ext('https://www.agence-maths-entreprises.fr/a/?q=fr/prix-de-these','AMIES PhD Award','inline-link')+', best PhD in applied mathematics in collaboration with industry, 2019.</li><li>'+ext('http://www.bachelierfinance.org/awards/junior-scholar-award.html','Bachelier Finance Society Junior Scholar Award','inline-link')+', most outstanding paper, 2018.</li></ul></div></section>'
-latest='<section class="section latest-section"><div class="section-top"><h2>New papers</h2><a class="text-link" href="publications.html">All publications</a></div><div class="paper-grid">'+''.join(paper(p) for p in PUBS[:3])+'</div></section>'
-events=CONFIG['upcoming']
-def event(e):return f'<article class="event"><div class="meta">{esc(e["date"])} · {esc(e["place"])}</div><h3>{ext(e["url"],e["name"])}</h3><p>{linked_text(e.get("topic",""))}</p></article>'
-next_events='<section class="section agenda-section"><div class="section-top"><h2>Upcoming talks</h2><a class="text-link" href="talks.html">Past talks &amp; minicourses</a></div>'
-last_year=None
-for e in events:
-    year=re.search(r'20\d{2}',e['date']).group()
-    if year!=last_year:
-        if last_year: next_events+='</div>'
-        next_events+=f'<h3 class="agenda-year">{year}</h3><div class="agenda">'
-        last_year=year
-    short_date=e['date'].replace(' '+year,'')
-    topic=f'<p>{linked_text(e["topic"])}</p>' if e.get('topic') else ''
-    next_events+=f'<article class="agenda-row"><div class="agenda-date">{esc(short_date)}</div><div><h3>{ext(e["url"],e["name"])}</h3><p class="agenda-place">{esc(e["place"])}</p>{topic}</div></article>'
-next_events+='</div></section>'
+latest='<section class="section latest-section"><div class="section-top"><h2>New papers</h2><a class="text-link" href="publications.html">All publications</a></div><div class="paper-grid">'+''.join(paper(p,show_year=False) for p in PUBS[:6])+'</div></section>'
+MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December']
+MONTH_PATTERN='(?:'+'|'.join(MONTHS+['Otcober'])+')'
+ARCHIVE_DATE=re.compile(r'\b'+MONTH_PATTERN+r'\s+\d{1,2}(?:\s*[-–]\s*(?:'+MONTH_PATTERN+r'\s+)?\d{1,2})?,?\s+20\d{2}')
+
+def archive_event(item):
+    # Keep the original archive text in site.json; derive its presentation here.
+    match=ARCHIVE_DATE.search(item['text'])
+    if not match: raise ValueError('Missing archive date: '+item['text'])
+    date=match.group().replace('Otcober','October')
+    prefix=item['text'][:match.start()].strip(' ,.')
+    name,sep,place=prefix.partition(', ')
+    # Edition labels belong to the event name, rather than its location.
+    while re.match(r'(?i)(?:#?\d|\d+(?:st|nd|rd|th))',place):
+        edition,sep,place=place.partition(', ')
+        name+=', '+edition
+    topic=item['text'][match.end():].strip(' ,. ')
+    distinctions=list(dict.fromkeys(m.title() for m in re.findall(r'(?i)\b(invited|plenary|keynote)\b',topic)))
+    topic=re.sub(r'(?i)\s*\((?:invited|plenary|keynote)\)', '', topic).strip()
+    return dict(name=name,place=place,date=date,topic=topic,url=item.get('url',''),distinctions=distinctions)
+
+def event_sort_key(e):
+    year=int(re.search(r'20\d{2}',e['date']).group())
+    month=next((i+1 for i,m in enumerate(MONTHS) if m in e['date']),0)
+    day=re.search(r'\b(\d{1,2})\b',e['date'])
+    return year,month,int(day.group()) if day else 0
+
+def agenda(events):
+    html='';last_year=None
+    for e in events:
+        year=re.search(r'20\d{2}',e['date']).group()
+        if year!=last_year:
+            if last_year: html+='</div>'
+            html+=f'<h3 class="agenda-year">{year}</h3><div class="agenda">'
+            last_year=year
+        short_date=re.sub(r',?\s*'+year+r'\b','',e['date'])
+        url=e.get('url','')
+        name=ext(url,e['name']) if url and url not in ('http://a','https://a') else esc(e['name'])
+        badges=''.join(f'<strong class="talk-distinction">{esc(label)}</strong>' for label in e.get('distinctions',[]))
+        badges=f'<div class="talk-badges">{badges}</div>' if badges else ''
+        place=f'<p class="agenda-place">{esc(e["place"])}</p>' if e.get('place') else ''
+        topic=f'<p>{linked_text(e["topic"])}</p>' if e.get('topic') else ''
+        html+=f'<article class="agenda-row"><div class="agenda-date">{esc(short_date)}</div><div>{badges}<h4>{name}</h4>{place}{topic}</div></article>'
+    return html+('</div>' if last_year else '')
+
+next_events='<section class="section agenda-section"><div class="section-top"><h2>Upcoming talks</h2><a class="text-link" href="talks.html">Past talks &amp; minicourses</a></div>'+agenda(CONFIG['upcoming'])+'</section>'
 page('index.html','Home','Eduardo Abi Jaber, Professor of Applied Mathematics at École Polytechnique. Stochastic systems with memory, Volterra processes, control and path signatures.',hero+academic_info+latest+next_events)
 
 pubintro='<div class="page-intro"><h1>Publications</h1></div>'
@@ -172,19 +204,12 @@ teaching+='<li><strong>2019–2022 · Université Paris 1 Panthéon-Sorbonne:</s
 page('teaching.html','Teaching','Graduate courses and professional education in stochastic modelling, quantitative finance and machine learning.',teaching+'<div class="page-body"></div>')
 
 talks='<div class="page-intro"><h1>Talks &amp; minicourses</h1></div>'
-talks+='<section class="section"><h2>Minicourses</h2><div class="events">'+''.join(event(e) for e in CONFIG['minicourses'])+'</div></section>'
-def highlighted(text):
-    return re.sub(r'(?i)\b(invited|plenary|keynote)\b',r'<strong class="talk-distinction">\1</strong>',esc(text))
+talks+='<div class="section-jumps" aria-label="Talk sections"><a href="#minicourses">Minicourses</a><a href="#conferences">Conferences</a><a href="#seminars">Seminars</a></div>'
+talks+='<section class="section agenda-section" id="minicourses"><h2>Minicourses</h2>'+agenda(sorted(CONFIG['minicourses'],key=event_sort_key,reverse=True))+'</section>'
 for group in CONFIG.get('talk_archive',[]):
     title=group['title'].replace(' archive','')
-    talks+=f'<details class="archive" open><summary>{esc(title)}</summary><ul>'
-    for item in group['items']:
-        label=highlighted(item['text'])
-        if item.get('url') and item['url'] not in ('http://a','https://a'):
-            text=ext(item['url'],item['text']).replace(esc(item['text']),label)
-        else:text=label
-        talks+=f'<li>{text}</li>'
-    talks+='</ul></details>'
+    events=sorted((archive_event(item) for item in group['items']),key=event_sort_key,reverse=True)
+    talks+=f'<section class="section agenda-section" id="{title.lower()}"><h2>{esc(title)}</h2>'+agenda(events)+'</section>'
 page('talks.html','Talks & minicourses','Conferences, seminars and minicourses by Eduardo Abi Jaber.',talks+'<div class="page-body"></div>')
 (OUT/'.nojekyll').touch()
 print('Built',len(list(OUT.glob('*.html'))),'pages in',OUT)
