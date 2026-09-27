@@ -40,7 +40,6 @@ The portrait remains a simple initials panel until you add a photo. There is no 
 - **Publications:** edit `publications.json`. The entries are displayed in the order listed, newest first. The first three appear on the homepage.
 - **Research and home introduction:** edit the corresponding text in `build.py`.
 - **Colours, typography and layout:** edit `assets/style.css`.
-- **CV:** replace `assets/Eduardo_Abi_Jaber_CV.pdf` with your new PDF.
 - **Existing source links:** `source-links.json` contains the public links migrated from the original website. It is build input, not a separate page.
 
 Every change pushed to `main` rebuilds the public site. For local changes, run `python3 build.py` to refresh `dist/`.
@@ -49,7 +48,6 @@ Every change pushed to `main` rebuilds the public site. For local changes, run `
 
 Content comes from the supplied CV and research statement, the user's corrections, and the Google website as retrieved on 26 September 2026. Paper links and publication details use the current Google webpage. Publication numbering is omitted because the source CV and Google page use different numbers for some papers.
 
-The public CV includes the newly supplied positions at Morgan Stanley, CFM and Luiss. Undated Google Scholar citation metrics have been omitted from the public copy pending confirmation.
 
 The source page's ambiguous Toulouse date and placeholder Munich seminar URL have not been carried into the upcoming events list. Add these once confirmed. The Google source contains links reused across recurring conferences; check the event-year destination when updating future talks.
 
