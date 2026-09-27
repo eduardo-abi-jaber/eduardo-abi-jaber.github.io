@@ -75,7 +75,9 @@
           "partner": "GEFIP",
           "position": "",
           "award": "",
-          "url": "https://www.linkedin.com/in/louis-amand-g%C3%A9rard/"
+          "url": "https://www.linkedin.com/in/louis-amand-g%C3%A9rard/",
+          "thesis_title": "Signature expansions in finance: Fourier and machine learning",
+          "thesis_url": "https://theses.hal.science/tel-05605922v1"
         },
         {
           "name": "Nathan De Carvalho",
@@ -85,7 +87,9 @@
           "partner": "ENGIE Global Markets",
           "position": "Quant at CFM",
           "award": "🌟 Bachelier Finance Society Junior Scholar Award 2024; 🌟 Bruti-Liberati Prize 2025.",
-          "url": "https://www.linkedin.com/in/nathan-de-carvalho-936129172/?originalSubdomain=fr"
+          "url": "https://www.linkedin.com/in/nathan-de-carvalho-936129172/?originalSubdomain=fr",
+          "thesis_title": "Lifting Energy Markets: from Volatility Modeling to Optimal Trading",
+          "thesis_url": "https://theses.hal.science/tel-05535048/"
         },
         {
           "name": "Shaun Li",
@@ -95,7 +99,9 @@
           "partner": "AXA Investment Managers",
           "position": "Quant at Morgan Stanley",
           "award": "",
-          "url": "https://www.linkedin.com/in/shaun-li-66a6582b/"
+          "url": "https://www.linkedin.com/in/shaun-li-66a6582b/",
+          "thesis_title": "The Quintic Volatility Model for SPX and VIX: A 360 Tour",
+          "thesis_url": "https://hal.science/tel-04910511"
         },
         {
           "name": "Alessandro Bondi",
@@ -115,7 +121,10 @@
           "partner": "",
           "position": "",
           "award": "",
-          "url": "https://scholar.google.com/citations?user=9zBR-xQAAAAJ&hl=en"
+          "url": "https://scholar.google.com/citations?user=9zBR-xQAAAAJ&hl=en",
+          "thesis_title": "Stochastic Pathways in Incomplete Markets: Volterra Processes, Stopping Times, and Path-Signatures",
+          "thesis_url": "https://uclouvain.be/fr/sst/news/public-thesis-defense-of-edouard-motte-lidam",
+          "thesis_link_note": "Thesis defence announcement"
         }
       ]
     }

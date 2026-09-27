@@ -75,8 +75,8 @@ def page(filename,title,description,content):
     canonical_tag=f'<link rel="canonical" href="{esc(canonical)}/{filename if filename!="index.html" else ""}">' if canonical else ''
     text=f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} | Eduardo Abi Jaber</title><meta name="description" content="{esc(description,quote=True)}">{canonical_tag}<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css?v={STYLE_VERSION}"><script src="assets/site.js" defer></script></head>
-<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="wrap header-inner"><a class="brand" href="index.html">Eduardo Abi Jaber<span>.</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="navigation" type="button">Menu</button><nav id="navigation" aria-label="Main navigation">{nav}</nav></div></header>
-<main id="main" class="wrap">{content}</main><footer class="wrap footer"><div class="footer-top"><div><a class="footer-name" href="index.html">Eduardo Abi Jaber</a><p>Professor of Applied Mathematics<br>École Polytechnique · CMAP</p></div><div class="footer-links">{ext('mailto:'+EMAIL,'Email')}{ext(SCHOLAR,'Google Scholar')}</div></div><div class="footer-bottom">© {CONFIG['copyright_year']} Eduardo Abi Jaber</div></footer></body></html>'''
+<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="wrap header-inner"><a class="brand" href="/">Eduardo Abi Jaber<span>.</span></a><button class="menu-toggle" aria-expanded="false" aria-controls="navigation" type="button">Menu</button><nav id="navigation" aria-label="Main navigation">{nav}</nav></div></header>
+<main id="main" class="wrap">{content}</main><footer class="wrap footer"><div class="footer-top"><div><a class="footer-name" href="/">Eduardo Abi Jaber</a><p>Professor of Applied Mathematics<br>École Polytechnique · CMAP</p></div><div class="footer-links">{ext('mailto:'+EMAIL,'Email')}{ext(SCHOLAR,'Google Scholar')}</div></div><div class="footer-bottom">© {CONFIG['copyright_year']} Eduardo Abi Jaber</div></footer></body></html>'''
     (OUT/filename).write_text(text)
 
 # Small monochrome symbols retain visible labels for clarity and accessibility.
@@ -117,11 +117,22 @@ in 2018.
 academic_info='<section class="section academic-overview"><div><h2>Current teaching</h2><ul class="teaching-list">'
 for course in CONFIG['courses']:
     academic_info+=f'<li>{ext(course["url"],course["title"],"inline-link")}<span>{esc(course["institution"])}</span></li>'
-academic_info+='</ul></div><div class="service-awards"><h2>Academic service</h2><p>I serve as Associate Editor for '+ext('https://onlinelibrary.wiley.com/journal/14679965','Mathematical Finance','inline-link')+', '+ext('https://link.springer.com/journal/780/editorial-board','Finance and Stochastics','inline-link')+' and '+ext('https://www.worldscientific.com/page/ijtaf/editorial-board','International Journal of Theoretical and Applied Finance','inline-link')+', since 2026.</p><h2>🌟 Awards</h2><ul><li>'+ext('https://www.agence-maths-entreprises.fr/a/?q=fr/prix-de-these','AMIES PhD Award','inline-link')+', best PhD in applied mathematics in collaboration with industry, 2019.</li><li>'+ext('http://www.bachelierfinance.org/awards/junior-scholar-award.html','Bachelier Finance Society Junior Scholar Award','inline-link')+', most outstanding paper, 2018.</li></ul></div></section>'
-latest='<section class="section"><div class="section-top"><div><p class="eyebrow">Recent work</p><h2>New papers</h2></div><a class="text-link" href="publications.html">All publications</a></div>'+''.join(paper(p) for p in PUBS[:3])+'</section>'
+academic_info+='</ul></div><div class="service-awards"><h2>Academic service</h2><p>I serve as Associate Editor for '+ext('https://onlinelibrary.wiley.com/journal/14679965','Mathematical Finance','inline-link')+', '+ext('https://link.springer.com/journal/780/editorial-board','Finance and Stochastics','inline-link')+' and '+ext('https://www.worldscientific.com/page/ijtaf/editorial-board','International Journal of Theoretical and Applied Finance','inline-link')+', since 2026.</p><h2>Awards</h2><ul><li>'+ext('https://www.agence-maths-entreprises.fr/a/?q=fr/prix-de-these','AMIES PhD Award','inline-link')+', best PhD in applied mathematics in collaboration with industry, 2019.</li><li>'+ext('http://www.bachelierfinance.org/awards/junior-scholar-award.html','Bachelier Finance Society Junior Scholar Award','inline-link')+', most outstanding paper, 2018.</li></ul></div></section>'
+latest='<section class="section latest-section"><div class="section-top"><h2>New papers</h2><a class="text-link" href="publications.html">All publications</a></div><div class="paper-grid">'+''.join(paper(p) for p in PUBS[:3])+'</div></section>'
 events=CONFIG['upcoming']
 def event(e):return f'<article class="event"><div class="meta">{esc(e["date"])} · {esc(e["place"])}</div><h3>{ext(e["url"],e["name"])}</h3><p>{linked_text(e.get("topic",""))}</p></article>'
-next_events='<section class="section split"><div><h2>Upcoming talks</h2><a class="text-link" href="talks.html">Talks &amp; minicourses</a></div><div class="events">'+''.join(event(e) for e in events)+'</div></section>'
+next_events='<section class="section agenda-section"><div class="section-top"><h2>Upcoming talks</h2><a class="text-link" href="talks.html">Past talks &amp; minicourses</a></div>'
+last_year=None
+for e in events:
+    year=re.search(r'20\d{2}',e['date']).group()
+    if year!=last_year:
+        if last_year: next_events+='</div>'
+        next_events+=f'<h3 class="agenda-year">{year}</h3><div class="agenda">'
+        last_year=year
+    short_date=e['date'].replace(' '+year,'')
+    topic=f'<p>{linked_text(e["topic"])}</p>' if e.get('topic') else ''
+    next_events+=f'<article class="agenda-row"><div class="agenda-date">{esc(short_date)}</div><div><h3>{ext(e["url"],e["name"])}</h3><p class="agenda-place">{esc(e["place"])}</p>{topic}</div></article>'
+next_events+='</div></section>'
 page('index.html','Home','Eduardo Abi Jaber, Professor of Applied Mathematics at École Polytechnique. Stochastic systems with memory, Volterra processes, control and path signatures.',hero+academic_info+latest+next_events)
 
 pubintro='<div class="page-intro"><h1>Publications</h1></div>'
@@ -133,6 +144,10 @@ for group in CONFIG['people']:
     for person in group['members']:
         name=ext(person['url'],person['name']) if person.get('url') else esc(person['name'])
         people+=f'<article class="person"><h3>{name}</h3><p class="dates">{esc(person["dates"])}{(" · "+esc(person["institution"])) if person["institution"] else ""}</p><p>{linked_text(person.get("supervision",""))}</p>'
+        if person.get('thesis_title'):
+            label=ext(person['thesis_url'],person['thesis_title'],'inline-link')
+            note=f'<span class="thesis-note">{esc(person["thesis_link_note"])}</span>' if person.get('thesis_link_note') else ''
+            people+=f'<p class="thesis"><strong>PhD thesis:</strong> {label}{note}</p>'
         if person.get('partner'):people+=f'<p>CIFRE partnership: {esc(person["partner"])}</p>'
         if person.get('position'):people+=f'<p class="position">Now: {esc(person["position"])}</p>'
         if person.get('award'):people+=f'<p class="award">{esc(person["award"])}</p>'
