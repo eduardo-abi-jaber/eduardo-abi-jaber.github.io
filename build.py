@@ -54,7 +54,7 @@ def paper(p,number=None,show_year=True):
     dates=re.findall(r'\b20\d{2}\b',p['details'])
     year=dates[0] if dates else 'Accepted'
     detail=re.sub(r'\s*\(Jupyter notebook\)', '',p['details'])
-    detail=detail.replace('🌟','').replace(' ( )','').strip()
+    detail=detail.replace('🌟','🌟 ').replace(' ( )','').strip()
     journal_links={}
     for entry in p['links'][1:]:
         if entry['label'] not in PERSON_LINKS and '/editorial-board' not in entry['url'] and 'notebook' not in entry['label'].lower():
