@@ -167,7 +167,7 @@ def agenda(events):
 next_events='<section class="section agenda-section"><div class="section-top"><h2>Upcoming talks</h2><a class="text-link" href="talks.html">Past talks &amp; minicourses</a></div>'+agenda(CONFIG['upcoming'])+'</section>'
 page('index.html','Home','Eduardo Abi Jaber, Professor of Applied Mathematics at École Polytechnique. Stochastic systems with memory, Volterra processes, control and path signatures.',hero+academic_info+latest+next_events)
 
-pubintro='<div class="page-intro"><h1>Publications and Preprints</h1></div>'
+pubintro='<div class="page-intro"><h1>Publications</h1></div>'
 page('publications.html','Publications','Research papers and preprints by Eduardo Abi Jaber, with manuscript and code links.',pubintro+'<div class="page-body">'+''.join(paper(p,len(PUBS)-i) for i,p in enumerate(PUBS))+'</div>')
 
 people='<div class="page-intro"><h1>Research Group</h1><p class="lead">I enjoy building a collaborative team where we develop ideas together, learn from one another and explore new mathematical questions. If you are interested in joining the group, please '+ext('mailto:'+EMAIL,'get in touch','inline-link')+'.</p></div>' 
