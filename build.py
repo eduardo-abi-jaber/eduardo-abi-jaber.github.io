@@ -69,7 +69,7 @@ def paper(p,number=None,show_year=True):
     return f'<article class="paper">{marker_html}<div><h3>{ext(p["url"],p["title"])}</h3><p>{detail_html}</p>{actions_html}</div></article>'
 def page(filename,title,description,content):
     nav=''
-    for file,label in [('publications.html','Publications'),('people.html','Research Group'),('teaching.html','Teaching'),('talks.html','Talks')]:
+    for file,label in [('publications.html','Publications'),('people.html','Research Group'),('talks.html','Talks'),('teaching.html','Teaching')]:
         current=' aria-current="page"' if file==filename else ''
         nav+=f'<a href="{file}"{current}>{label}</a>'
     canonical=CONFIG.get('site_url','').rstrip('/')
