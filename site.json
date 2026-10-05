@@ -184,13 +184,20 @@
       "place": "Hammamet, Tunisia",
       "topic": "",
       "url": "https://sites.google.com/view/conference-hammamet/home"
-    },
+    },    
     {
       "name": "Summer School on Quantitative Finance",
       "date": "28 June – 2 July 2027",
       "place": "Barcelona, Spain",
       "topic": "",
       "url": "https://www.crm.cat/"
+    },
+        {
+      "name": "13th AMaMeF Conference",
+      "date": "5–9 July 2027",
+      "place": "Barcelona, Spain",
+      "topic": "",
+      "url": "https://www.iese.edu/faculty-research/13-amamef-conference/
     }
   ],
   "courses": [
