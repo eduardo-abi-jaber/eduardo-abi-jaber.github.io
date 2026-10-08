@@ -171,11 +171,17 @@ pubintro='<div class="page-intro"><h1>Publications</h1></div>'
 page('publications.html','Publications','Research papers and preprints by Eduardo Abi Jaber, with manuscript and code links.',pubintro+'<div class="page-body">'+''.join(paper(p,len(PUBS)-i) for i,p in enumerate(PUBS))+'</div>')
 
 people='<div class="page-intro"><h1>Research Group</h1><p class="lead">I enjoy building a collaborative team where we develop ideas together, learn from one another and explore new mathematical questions. If you are interested in joining the group, please '+ext('mailto:'+EMAIL,'get in touch','inline-link')+'.</p></div>' 
+last_role=None
 for group in CONFIG['people']:
-    people+=f'<section><h2 class="subhead">{esc(group["title"])}</h2><div class="people-grid">'
+    role=group['role']
+    if role!=last_role:
+        if last_role: people+='</section>'
+        people+=f'<section class="people-role"><h2 class="subhead">{esc(role)}</h2>'
+        last_role=role
+    people+=f'<h3 class="people-status">{esc(group["title"])}</h3><div class="people-grid">'
     for person in group['members']:
         name=ext(person['url'],person['name']) if person.get('url') else esc(person['name'])
-        people+=f'<article class="person"><h3>{name}</h3><p class="dates">{esc(person["dates"])}{(" · "+esc(person["institution"])) if person["institution"] else ""}</p><p>{linked_text(person.get("supervision",""))}</p>'
+        people+=f'<article class="person"><h4>{name}</h4><p class="dates">{esc(person["dates"])}{(" · "+esc(person["institution"])) if person["institution"] else ""}</p><p>{linked_text(person.get("supervision",""))}</p>'
         if person.get('thesis_title'):
             label=ext(person['thesis_url'],person['thesis_title'],'inline-link')
             note=f'<span class="thesis-note">{esc(person["thesis_link_note"])}</span>' if person.get('thesis_link_note') else ''
@@ -184,7 +190,8 @@ for group in CONFIG['people']:
         if person.get('position'):people+=f'<p class="position">Now: {esc(person["position"])}</p>'
         if person.get('award'):people+=f'<p class="award">{esc(person["award"])}</p>'
         people+='</article>'
-    people+='</div></section>'
+    people+='</div>'
+people+='</section>'
 page('people.html','Research Group','Current doctoral researchers, postdoctoral researchers and alumni supervised by Eduardo Abi Jaber.',people+'<div class="page-body"></div>')
 
 teaching=intro('Teaching','From foundations<br>to applications.','Courses in stochastic modelling, memory, quantitative finance and learning, for graduate students and practitioners.')

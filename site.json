@@ -5,7 +5,8 @@
   "portrait": "assets/portrait.jpg",
   "people": [
     {
-      "title": "PhD Students",
+      "role": "PhD students",
+      "title": "Current",
       "members": [
         {
           "name": "Ronan Pécheul",
@@ -50,22 +51,8 @@
       ]
     },
     {
-      "title": "Postdocs",
-      "members": [
-        {
-          "name": "Francesca Primavera",
-          "dates": "Since 2025",
-          "institution": "École Polytechnique",
-          "supervision": "",
-          "partner": "",
-          "position": "",
-          "award": "",
-          "url": "https://www.linkedin.com/in/francescaprimavera/en"
-        }
-      ]
-    },
-    {
-      "title": "Former PhD students and postdocs",
+      "role": "PhD students",
+      "title": "Former",
       "members": [
         {
           "name": "Louis-Amand Gérard",
@@ -104,16 +91,6 @@
           "thesis_url": "https://hal.science/tel-04910511"
         },
         {
-          "name": "Alessandro Bondi",
-          "dates": "Postdoc, 2023–2024",
-          "institution": "École Polytechnique",
-          "supervision": "Co-supervised with Sergio Pulido.",
-          "partner": "",
-          "position": "Tenure-track researcher, Luiss University, Rome",
-          "award": "",
-          "url": "https://sites.google.com/view/alessandrobondi/home"
-        },
-        {
           "name": "Édouard Motte",
           "dates": "Visiting PhD student, 2025",
           "institution": "",
@@ -124,6 +101,38 @@
           "url": "https://scholar.google.com/citations?user=9zBR-xQAAAAJ&hl=en",
           "thesis_title": "Stochastic Pathways in Incomplete Markets: Volterra Processes, Stopping Times, and Path-Signatures",
           "thesis_url": "https://research.dial.uclouvain.be/entities/publication/facefa0f-6f05-451f-ad4e-dbba77b09753"
+        }
+      ]
+    },
+    {
+      "role": "Postdoctoral researchers",
+      "title": "Current",
+      "members": [
+        {
+          "name": "Francesca Primavera",
+          "dates": "Since 2025",
+          "institution": "École Polytechnique",
+          "supervision": "",
+          "partner": "",
+          "position": "",
+          "award": "",
+          "url": "https://www.linkedin.com/in/francescaprimavera/en"
+        }
+      ]
+    },
+    {
+      "role": "Postdoctoral researchers",
+      "title": "Former",
+      "members": [
+        {
+          "name": "Alessandro Bondi",
+          "dates": "Postdoc, 2023–2024",
+          "institution": "École Polytechnique",
+          "supervision": "Co-supervised with Sergio Pulido.",
+          "partner": "",
+          "position": "Tenure-track researcher, Luiss University, Rome",
+          "award": "",
+          "url": "https://sites.google.com/view/alessandrobondi/home"
         }
       ]
     }
@@ -185,7 +194,7 @@
       "topic": "",
       "url": "https://www.imperial.ac.uk/mathematical-finance/events/finance-and-stochastics/"
     },
-        {
+    {
       "name": "Seminar Mathematics of decision making and statistics",
       "date": "18 March 2027",
       "place": "Toulouse School of Economics, UK",

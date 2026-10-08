@@ -34,3 +34,5 @@
 .paper-grid .paper h3{font-size:1.15rem}
 .paper-grid .paper p{font-size:.88rem}
 @media(max-width:760px){.paper-grid{gap:0}.paper-grid .paper{padding:22px 0}.agenda-row h4{font-size:1.05rem}}
+
+.people-role{margin-bottom:48px}.people-status{color:var(--blue);font-size:.85rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;margin:28px 0 15px}.person h4{font-size:1.15rem;font-weight:600;line-height:1.4;margin:0}
