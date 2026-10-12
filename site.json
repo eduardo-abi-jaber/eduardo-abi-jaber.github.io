@@ -139,13 +139,6 @@
   ],
   "upcoming": [
     {
-      "name": "Algo Defi Workshop",
-      "date": "8–9 October 2026",
-      "place": "Milan, Italy",
-      "topic": "Signatures for hedging with memory.",
-      "url": "https://www.mate.polimi.it/events/ALGODEFI26/"
-    },
-    {
       "name": "Mathematical Advances on Emerging Risks",
       "date": "3–6 November 2026",
       "place": "Yucatán, Mexico",
@@ -257,6 +250,10 @@
     {
       "title": "Conferences archive",
       "items": [
+        {
+          "text": "Algo Defi Workshop, Milan, Italy, October 8–9, 2026. Signatures for hedging with memory. (Invited)",
+          "url": "https://www.mate.polimi.it/events/ALGODEFI26/"
+        },
         {
           "text": "International Conference on Computational Finance 2026, Oxford, UK, September 1-4, 2026. Minisymposium on Memory in Computational Finance + talk on characteristic functions of signatures.",
           "url": "https://iccf26.web.ox.ac.uk/"
