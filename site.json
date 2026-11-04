@@ -155,7 +155,7 @@
     {
       "name": "Stochastic Numerics and Statistical Learning",
       "date": "22–29 November 2026",
-      "place": "KAUST, Saudi Arabia",
+      "place": "KAUST, Online",
       "topic": "Fading Memory Signature.",
       "url": "https://www.kaust.edu.sa/events/snsl26/"
     },
@@ -165,6 +165,13 @@
       "place": "Rio de Janeiro, Brazil",
       "topic": "",
       "url": "https://eventos.fgv.br/research-options-2026"
+    },
+       {
+      "name": "Wébinaire IA, Institut Louis Bachelier",
+      "date": "14 December 2026",
+      "place": "Online",
+      "topic": "",
+      "url": "https://www.institutlouisbachelier.org/au-programme/evenements/prevision-et-gestion-des-risques-financiers-par-lia-modeles-de-fondation-memoire-des-marches-et-signatures-de-chemins"
     },
     {
       "name": "Séminaire Bachelier",
