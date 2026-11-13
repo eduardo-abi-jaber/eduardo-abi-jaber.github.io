@@ -33,7 +33,9 @@ for publication in PUBS:
 for group in CONFIG['people']:
     for person in group['members']:
         if person.get('url'): PERSON_LINKS[person['name']]=person['url']
-PERSON_LINKS['Edouard Motte']=PERSON_LINKS['Édouard Motte']
+motte_url=PERSON_LINKS.get('Edouard Motte') or PERSON_LINKS.get('Édouard Motte')
+if motte_url:
+    PERSON_LINKS.update({'Edouard Motte':motte_url,'Édouard Motte':motte_url})
 def linked_text(text,extra=None):
     destinations=dict(PERSON_LINKS)
     if extra: destinations.update(extra)
