@@ -1,5 +1,28 @@
 [
   {
+    "title": "Convergence rates for truncated and discretised signature expansions",
+    "details": "with Dorinel Bastide, Ronan Pécheul and Clément Rey, 2026.",
+    "url": "https://arxiv.org/abs/2611.16087",
+    "links": [
+      {
+        "label": "Convergence rates for truncated and discretised signature expansions",
+        "url": "https://arxiv.org/abs/2611.16087"
+      },
+      {
+        "label": "Dorinel Bastide",
+        "url": "https://fr.linkedin.com/in/dorinelbastide"
+      },
+      {
+        "label": "Ronan Pécheul",
+        "url": "https://www.linkedin.com/in/ronan-pecheul/"
+      },
+      {
+        "label": "Clément Rey",
+        "url": "http://www.cmapx.polytechnique.fr/~clement.rey/"
+      }
+    ]
+  },
+  {
     "title": "Optimal Investment and Consumption in Financial Markets with Integrated Variance Clocks",
     "details": "with Florian Gutekunst, Martin Herdegen and David Hobson, 2026.",
     "url": "https://arxiv.org/abs/2609.26349",
