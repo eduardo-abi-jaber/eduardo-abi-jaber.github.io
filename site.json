@@ -54,6 +54,18 @@
       "role": "PhD students",
       "title": "Former",
       "members": [
+                {
+          "name": "Édouard Motte",
+          "dates": "Visiting PhD student, 2025",
+          "institution": "",
+          "supervision": "",
+          "partner": "",
+          "position": "",
+          "award": "",
+          "url": "https://scholar.google.com/citations?user=9zBR-xQAAAAJ&hl=en",
+          "thesis_title": "Stochastic Pathways in Incomplete Markets: Volterra Processes, Stopping Times, and Path-Signatures",
+          "thesis_url": "https://research.dial.uclouvain.be/entities/publication/facefa0f-6f05-451f-ad4e-dbba77b09753"
+        }
         {
           "name": "Louis-Amand Gérard",
           "dates": "PhD, 2022–2025",
@@ -89,18 +101,6 @@
           "url": "https://www.linkedin.com/in/shaun-li-66a6582b/",
           "thesis_title": "The Quintic Volatility Model for SPX and VIX: A 360 Tour",
           "thesis_url": "https://hal.science/tel-04910511"
-        },
-        {
-          "name": "Édouard Motte",
-          "dates": "Visiting PhD student, 2025",
-          "institution": "",
-          "supervision": "",
-          "partner": "",
-          "position": "",
-          "award": "",
-          "url": "https://scholar.google.com/citations?user=9zBR-xQAAAAJ&hl=en",
-          "thesis_title": "Stochastic Pathways in Incomplete Markets: Volterra Processes, Stopping Times, and Path-Signatures",
-          "thesis_url": "https://research.dial.uclouvain.be/entities/publication/facefa0f-6f05-451f-ad4e-dbba77b09753"
         }
       ]
     },
