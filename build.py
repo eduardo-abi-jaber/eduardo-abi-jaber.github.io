@@ -116,7 +116,7 @@ in 2024 and my
 target="_blank" rel="noopener noreferrer">PhD thesis</a>
 in 2018.
 </p><div class="links profile-links">{profile_links}</div></div><figure class="portrait-wrap"><div class="portrait">{photo}</div></figure></section>
-<div class="research-band"><div>Volterra processes</div><div>Path signatures &amp; learning</div><div>Mathematical Finance</div><div>Volatility Modeling</div></div>'''
+<div class="research-band"><div>Volterra processes</div><div>Path signatures &amp; learning</div><div>Mathematical finance</div><div>Volatility modeling</div></div>'''
 academic_info='<section class="section academic-overview"><div><h2>Current teaching</h2><ul class="teaching-list">'
 for course in CONFIG['courses']:
     academic_info+=f'<li>{ext(course["url"],course["title"],"inline-link")}<span>{esc(course["institution"])}</span></li>'
