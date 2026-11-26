@@ -54,7 +54,7 @@
       "role": "PhD students",
       "title": "Former",
       "members": [
-                {
+        {
           "name": "Edouard Motte",
           "dates": "Visiting PhD student, 2025",
           "institution": "",
@@ -139,34 +139,13 @@
   ],
   "upcoming": [
     {
-      "name": "Mathematical Advances on Emerging Risks",
-      "date": "3–6 November 2026",
-      "place": "Yucatán, Mexico",
-      "topic": "Characteristic functions of signatures, Riccati equations and stochastic control.",
-      "url": "https://thomaspeyrat.github.io/Merida_2026.github.io/index.html"
-    },
-    {
-      "name": "QuantMinds",
-      "date": "16–19 November 2026",
-      "place": "London, UK",
-      "topic": "Fading memory signatures for volatility modelling.",
-      "url": "https://informaconnect.com/quantminds-international/"
-    },
-    {
-      "name": "Stochastic Numerics and Statistical Learning",
-      "date": "22–29 November 2026",
-      "place": "KAUST, Online",
-      "topic": "Fading Memory Signatures: A Universal Framework for Time Series Learning.",
-      "url": "https://www.kaust.edu.sa/events/snsl26/"
-    },
-    {
       "name": "Research in Options: RiO 2026",
       "date": "2–6 December 2026",
       "place": "Rio de Janeiro, Brazil",
       "topic": "Fading Memory Signatures for Volatility Modeling",
       "url": "https://eventos.fgv.br/research-options-2026"
     },
-       {
+    {
       "name": "Wébinaire IA, Institut Louis Bachelier",
       "date": "14 December 2026",
       "place": "Online",
@@ -257,6 +236,18 @@
     {
       "title": "Conferences archive",
       "items": [
+        {
+          "text": "Stochastic Numerics and Statistical Learning, KAUST, Online, November 22–29, 2026. Fading Memory Signatures: A Universal Framework for Time Series Learning. (Invited)",
+          "url": "https://www.kaust.edu.sa/events/snsl26/"
+        },
+        {
+          "text": "QuantMinds, London, UK, November 16–19, 2026. Fading memory signatures for volatility modelling. (Invited)",
+          "url": "https://informaconnect.com/quantminds-international/"
+        },
+        {
+          "text": "Mathematical Advances on Emerging Risks, Yucatán, Mexico, November 3–6, 2026. Characteristic functions of signatures, Riccati equations and stochastic control. (Invited)",
+          "url": "https://thomaspeyrat.github.io/Merida_2026.github.io/index.html"
+        },
         {
           "text": "Algo Defi Workshop, Milan, Italy, October 8–9, 2026. Signatures for hedging with memory. (Invited)",
           "url": "https://www.mate.polimi.it/events/ALGODEFI26/"
